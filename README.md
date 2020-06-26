@@ -1,5 +1,4 @@
 # VisiTour
-Flight booking application
 
 
 Application is based on 
