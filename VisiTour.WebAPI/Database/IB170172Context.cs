@@ -77,6 +77,10 @@ namespace VisiTour.WebAPI.Database
                 entity.Property(e => e.CityId).HasColumnName("CityID");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.Photo)
+                    .HasColumnName("photo")
+                    .HasColumnType("image");
             });
 
             modelBuilder.Entity<Companies>(entity =>
@@ -93,6 +97,10 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
+                entity.Property(e => e.Photo)
+                    .HasColumnName("photo")
+                    .HasColumnType("image");
+
                 entity.HasOne(d => d.FlightClass)
                     .WithMany(p => p.Companies)
                     .HasForeignKey(d => d.FlightClassId)
@@ -105,6 +113,10 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.CountryId).HasColumnName("CountryID");
 
+                entity.Property(e => e.Flag)
+                    .HasColumnName("flag")
+                    .HasColumnType("image");
+
                 entity.Property(e => e.Name).HasMaxLength(50);
             });
 
@@ -116,6 +128,10 @@ namespace VisiTour.WebAPI.Database
                 entity.Property(e => e.CreditCardId).HasColumnName("CreditCardID");
 
                 entity.Property(e => e.Name).HasMaxLength(20);
+
+                entity.Property(e => e.Photo)
+                    .HasColumnName("photo")
+                    .HasColumnType("image");
             });
 
             modelBuilder.Entity<Customers>(entity =>

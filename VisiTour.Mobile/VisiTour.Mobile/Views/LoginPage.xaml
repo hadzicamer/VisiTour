@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:VisiTour.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Image Source="logo(1).png" WidthRequest="300"></Image>
+            <Entry Placeholder="Username" Text="{Binding Username}"></Entry>
+            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"></Entry>
+            <Button Command="{Binding LoginCommand}" Text="Login" BackgroundColor="Green"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

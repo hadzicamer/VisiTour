@@ -83,6 +83,7 @@ namespace VisiTour.WebAPI
             services.AddScoped<IService<Model.FlightStatus, object>, BaseService<Model.FlightStatus, object, Database.FlightStatus>>();
             services.AddScoped<IService<Model.FlightSeats, object>, BaseService<Model.FlightSeats, object, Database.FlightSeats>>();
             services.AddScoped<IService<Model.CreditCards, object>, BaseService<Model.CreditCards, object, Database.CreditCards>>();
+            services.AddScoped<IService<Model.FlightClasses, object>, BaseService<Model.FlightClasses, object, Database.FlightClasses>>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IBookingsService, BookingsService>();
             services.AddControllersWithViews(options =>
@@ -101,7 +102,7 @@ namespace VisiTour.WebAPI
 
             app.UseSwagger();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthentication();

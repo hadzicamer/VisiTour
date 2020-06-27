@@ -13,6 +13,7 @@ namespace VisiTour.WebAPI.Database
 
         public int CityId { get; set; }
         public string Name { get; set; }
+        public byte[] Photo { get; set; }
 
         public virtual ICollection<Flights> Flights { get; set; }
         public virtual ICollection<SpecialOffers> SpecialOffers { get; set; }

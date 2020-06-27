@@ -10,7 +10,6 @@ namespace VisiTour.WinUI
 {
     public class APIService
     {
-        //public static string Email { get; set; }
         public static string Username { get; set; }
         public static string Password { get; set; }
 

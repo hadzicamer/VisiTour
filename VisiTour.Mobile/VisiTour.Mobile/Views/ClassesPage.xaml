@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:VisiTour.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.ClassesPage">
+    <ContentPage.BindingContext>
+        <vm:ClassesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="350">
+            <Label Text="Choose the company: "/>
+            <Picker ItemsSource="{Binding CompaniesList}" ItemDisplayBinding="{Binding Name}"></Picker>
+            <Label Text="Choose the class: "/>
+            <Picker ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}"></Picker>
+            <Button Text="Show" BackgroundColor="LightBlue"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

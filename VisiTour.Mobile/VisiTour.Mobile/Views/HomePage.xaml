@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.ItemsPage"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+        <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="background.jpg" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="AspectFill"/>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="180">
+            <Image Source="logo(2).png" WidthRequest="400"></Image>
+                <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600"/>
+                        </Grid.ColumnDefinitions>
+                    <Button x:Name="findFlights" Text="Find flights" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="My bookings" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="My bookmarks" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="My Flight informations" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="About us" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                    </Grid>
+                </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

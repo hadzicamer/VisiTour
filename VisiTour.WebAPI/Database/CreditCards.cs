@@ -12,6 +12,7 @@ namespace VisiTour.WebAPI.Database
 
         public int CreditCardId { get; set; }
         public string Name { get; set; }
+        public byte[] Photo { get; set; }
 
         public virtual ICollection<Payments> Payments { get; set; }
     }
