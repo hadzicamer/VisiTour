@@ -31,13 +31,16 @@ namespace VisiTour.Mobile.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Home:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
-                    case (int)MenuItemType.Profile:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                    //case (int)MenuItemType.Profile:
+                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    //    break;
                     case (int)MenuItemType.Classes:
                         MenuPages.Add(id, new NavigationPage(new ClassesPage()));
+                        break;
+                    case (int)MenuItemType.About:
+                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                 }
             }

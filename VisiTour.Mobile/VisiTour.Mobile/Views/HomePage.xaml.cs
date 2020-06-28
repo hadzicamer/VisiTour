@@ -16,11 +16,11 @@ namespace VisiTour.Mobile.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class ItemsPage : ContentPage
+    public partial class HomePage : ContentPage
     {
         HomeViewModel viewModel;
 
-        public ItemsPage()
+        public HomePage()
         {
             InitializeComponent();
             
@@ -45,6 +45,11 @@ namespace VisiTour.Mobile.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.IsBusy = true;
+        }
+
+        private async void About_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
         }
     }
 }

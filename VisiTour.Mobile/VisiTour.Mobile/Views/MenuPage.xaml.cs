@@ -22,11 +22,13 @@ namespace VisiTour.Mobile.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
-                new HomeMenuItem {Id = MenuItemType.FindFlights, Title="FindFlights" },
+                new HomeMenuItem {Id = MenuItemType.FindFlights, Title="Find Flights" },
                 new HomeMenuItem {Id = MenuItemType.Classes, Title="Classes" },
-                new HomeMenuItem {Id = MenuItemType.Offers, Title="Offers" }
-            };
+                new HomeMenuItem {Id = MenuItemType.Offers, Title="Offers" },
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
 
+            };
+            
             ListViewMenu.ItemsSource = menuItems;
 
             ListViewMenu.SelectedItem = menuItems[0];

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using VisiTour.Mobile.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,9 +14,12 @@ namespace VisiTour.Mobile.Views
     [DesignTimeVisible(false)]
     public partial class AboutPage : ContentPage
     {
+
         public AboutPage()
         {
             InitializeComponent();
         }
+
+     
     }
 }

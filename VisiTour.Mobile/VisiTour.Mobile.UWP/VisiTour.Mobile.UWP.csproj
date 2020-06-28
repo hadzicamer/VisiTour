@@ -114,6 +114,7 @@
     <Content Include="Assets\Square44x44Logo.scale-150.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="backBtn.png" />
     <Content Include="background.jpg" />
     <Content Include="logo%281%29.png" />
     <Content Include="logo%282%29.png" />

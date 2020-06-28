@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="VisiTour.Mobile.Views.ItemsPage"
+             x:Class="VisiTour.Mobile.Views.HomePage"
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
 
@@ -45,7 +45,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
                         </Grid.ColumnDefinitions>
-                        <Button Text="About us" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                        <Button x:Name="About" Clicked="About_Clicked" Text="About us" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
                     </Grid>
                 </StackLayout>
         </AbsoluteLayout>

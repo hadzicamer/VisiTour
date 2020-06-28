@@ -43,7 +43,6 @@ namespace VisiTour.Mobile.ViewModels
             }
             catch (Exception ex)
             {
-                throw;
             }
         }
     }

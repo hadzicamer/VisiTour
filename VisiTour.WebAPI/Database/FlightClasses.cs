@@ -14,6 +14,7 @@ namespace VisiTour.WebAPI.Database
 
         public int FlightClassId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
 
         public virtual ICollection<Companies> Companies { get; set; }
         public virtual ICollection<Flights> Flights { get; set; }

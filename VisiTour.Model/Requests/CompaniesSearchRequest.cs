@@ -6,6 +6,7 @@ namespace VisiTour.Model.Requests
 {
     public class CompaniesSearchRequest
     {
+        public int CompanyId { get; set; }
         public string Name { get; set; }
     }
 }

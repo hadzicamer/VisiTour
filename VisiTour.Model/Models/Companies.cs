@@ -11,5 +11,6 @@ namespace VisiTour.Model
         public string Headquarter { get; set; }
         public string FoundingYear { get; set; }
         public string Country { get; set; }
+        public byte[] photo { get; set; }
     }
 }
