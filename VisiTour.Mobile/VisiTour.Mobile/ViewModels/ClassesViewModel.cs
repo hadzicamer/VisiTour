@@ -17,10 +17,12 @@ namespace VisiTour.Mobile.ViewModels
         private readonly APIService _companiesService = new APIService("Companies");
         private readonly APIService _classesService = new APIService("FlightClasses");
 
+
         public ClassesViewModel()
         {
             CompaniesCommand = new Command(async () => await InitCompanies());
             ClassesCommand = new Command(async () => await InitClasses());
+
         }
 
         public ObservableCollection<Companies> CompaniesList { get; set; } = new ObservableCollection<Companies>();
@@ -53,6 +55,7 @@ namespace VisiTour.Mobile.ViewModels
         public ICommand CompaniesCommand { get; set; }
         public ICommand ClassesCommand { get; set; }
 
+
         public async Task InitClasses()
         {
             if (ClassesList.Count == 0)
@@ -82,6 +85,5 @@ namespace VisiTour.Mobile.ViewModels
                 }
             }
         }
-
-    }
+}
 }

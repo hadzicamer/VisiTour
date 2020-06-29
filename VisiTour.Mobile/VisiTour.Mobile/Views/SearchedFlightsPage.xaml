@@ -4,12 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="VisiTour.Mobile.Views.ChoosedClassPage">
+             x:Class="VisiTour.Mobile.Views.SearchedFlightsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="lblFrom"></Label>
+            <Label x:Name="lblDateFrom"></Label>
+            <Label x:Name="lblTo"></Label>
+            <Label x:Name="lblDateTo"></Label>
+            <Label x:Name="lblClass"></Label>
+            <Label x:Name="lblPrice"></Label>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

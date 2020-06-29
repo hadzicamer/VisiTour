@@ -49,7 +49,7 @@ namespace VisiTour.Mobile.Views
 
         private async void About_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
+            await Navigation.PushAsync(new AboutPage());
         }
     }
 }

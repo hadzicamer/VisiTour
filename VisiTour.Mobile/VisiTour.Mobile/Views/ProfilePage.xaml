@@ -6,10 +6,17 @@
              mc:Ignorable="d"
              x:Class="VisiTour.Mobile.Views.ProfilePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+            <Image Source="profile.png" WidthRequest="150"></Image>
+            <Label x:Name="lblName" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <!--<Label Text="Place of birth: "/>
+            <Label x:Name="lblBirthPlace"/>-->
+            <Label Text="Country: "/>
+            <Label x:Name="lblCountry"/>
+            <Label Text="Date of birth: "/>
+            <Label x:Name="lblBirthDate"/>
+            <Label Text="Email: "/>
+            <Label x:Name="lblEmail"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

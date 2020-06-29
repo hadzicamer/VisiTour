@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.Arch.Lifecycle;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -14,12 +15,11 @@ namespace VisiTour.Mobile.Views
     [DesignTimeVisible(false)]
     public partial class AboutPage : ContentPage
     {
-
         public AboutPage()
         {
             InitializeComponent();
         }
 
-     
+       
     }
 }

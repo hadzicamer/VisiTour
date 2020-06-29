@@ -33,14 +33,17 @@ namespace VisiTour.Mobile.Views
                     case (int)MenuItemType.Home:
                         MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
-                    //case (int)MenuItemType.Profile:
-                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                    //    break;
+                    case (int)MenuItemType.Profile:
+                        MenuPages.Add(id, new NavigationPage(new ProfilePage()));
+                        break;
                     case (int)MenuItemType.Classes:
                         MenuPages.Add(id, new NavigationPage(new ClassesPage()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;
+                    case (int)MenuItemType.FindFlights:
+                        MenuPages.Add(id, new NavigationPage(new FindFlightsPage()));
                         break;
                 }
             }

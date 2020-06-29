@@ -49,6 +49,10 @@ namespace VisiTour.WebAPI.Services
             {
                 query = query.Where(x => x.Name.StartsWith(request.Name));
             }
+            if (!string.IsNullOrWhiteSpace(request?.Username))
+            {
+                query = query.Where(x => x.Username.StartsWith(request.Username));
+            }
             var list = query.ToList();
             return _mapper.Map<List<Model.Customers>>(query);
         }

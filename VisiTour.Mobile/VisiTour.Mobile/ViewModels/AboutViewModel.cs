@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using VisiTour.Mobile.Views;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 

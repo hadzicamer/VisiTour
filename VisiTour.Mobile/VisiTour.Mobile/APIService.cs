@@ -12,6 +12,10 @@ namespace VisiTour.Mobile
     {
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static Customers Customers { get; set; }
+        public static Flights Flights { get; set; }
+
+
 
         private string _route;
 

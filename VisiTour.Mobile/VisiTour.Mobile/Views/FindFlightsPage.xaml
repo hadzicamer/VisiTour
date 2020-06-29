@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.FindFlightsPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="From: "></Label>
+            <Picker ItemsSource="{Binding CitiesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCityFrom}"></Picker>
+            <Label Text="Date From: "></Label>
+            <DatePicker></DatePicker>
+            <Label Text="To: "></Label>
+            <Picker ItemsSource="{Binding CitiesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCityTo}"></Picker>
+            <Label Text="Date To: "></Label>
+            <DatePicker></DatePicker>
+            <Label Text="Class: "></Label>
+            <Picker ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}"></Picker>
+            <Button Text="Search" BackgroundColor="LightGreen" Clicked="Search_Clicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

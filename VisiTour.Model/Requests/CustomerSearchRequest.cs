@@ -7,5 +7,6 @@ namespace VisiTour.Model.Requests
     public class CustomerSearchRequest
     {
         public string Name { get; set; }
+        public string Username { get; set; }
     }
 }

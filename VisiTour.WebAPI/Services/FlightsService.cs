@@ -20,9 +20,13 @@ namespace VisiTour.WebAPI.Services
         {
             var query = _context.Flights.AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(request?.FlightFrom) || !string.IsNullOrWhiteSpace(request?.FlightTo))
+            if (!string.IsNullOrWhiteSpace(request?.FlightFrom))
             {
-                query = query.Where(x => x.FlightFrom.StartsWith(request.FlightFrom) || x.FlightTo.StartsWith(request.FlightTo));
+                query = query.Where(x => x.FlightFrom.StartsWith(request.FlightFrom));
+            }
+            if(!string.IsNullOrWhiteSpace(request?.FlightTo))
+            {
+                query = query.Where(x => x.FlightTo.StartsWith(request.FlightTo));
             }
             var list = query.ToList();
             return _mapper.Map<List<Model.Flights>>(query);

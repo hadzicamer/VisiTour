@@ -14,7 +14,6 @@ namespace VisiTour.Mobile.Views
 
     public partial class ClassesPage : ContentPage
     {
-    private readonly APIService _classesService = new APIService("FlightClasses");
         ClassesViewModel model = null;
         public ClassesPage()
         {
@@ -45,20 +44,5 @@ namespace VisiTour.Mobile.Views
             txtClass.Text = model.SelectedClass.Description;
         }
 
-
-        //private async void CompaniesPicker_OnSelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        var sel =CompaniesPicker.SelectedItem as string;
-        //        await Navigation.PushModalAsync(new NavigationPage(new ChoosedClassPage()));
-
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
     }
 }

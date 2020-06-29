@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VisiTour.Mobile.Views;
+using VisiTour.Model;
+using VisiTour.Model.Requests;
 using Xamarin.Forms;
 
 namespace VisiTour.Mobile.ViewModels
@@ -35,6 +38,12 @@ namespace VisiTour.Mobile.ViewModels
         {
             APIService.Username = Username;
             APIService.Password = Password;
+            var temp = await _service.Get<List<Customers>>(new CustomerSearchRequest
+            {
+                Username = Username
+            });
+            APIService.Customers = temp.FirstOrDefault();
+
             try
             {
                 await _service.Get<dynamic>(null);
