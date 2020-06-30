@@ -49,7 +49,7 @@ namespace VisiTour.Mobile
             {
                 if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
                     await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
-            throw;
+            throw ex;
             }
         }
 

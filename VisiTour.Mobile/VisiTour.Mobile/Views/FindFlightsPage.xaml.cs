@@ -17,6 +17,7 @@ namespace VisiTour.Mobile.Views
         {
             InitializeComponent();
             BindingContext = model = new FindFlightsViewModel();
+    
         }
 
         protected async override void OnAppearing()
@@ -29,9 +30,8 @@ namespace VisiTour.Mobile.Views
 
         private async void Search_Clicked(object sender, EventArgs e)
         {
-            await model.getSearched();
-            await Navigation.PushAsync(new SearchedFlightsPage());
+            await Navigation.PushAsync(new SearchedFlightsPage(model));
           
-        }
+        }       
     }
 }

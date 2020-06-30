@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace VisiTour.WebAPI.Services
 
         public override List<Model.Flights> Get([FromQuery]FlightsSearchRequest request)
         {
-            var query = _context.Flights.AsQueryable();
+            var query = _context.Flights.Include(x=>x.FlightClass).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request?.FlightFrom))
             {
@@ -27,6 +28,22 @@ namespace VisiTour.WebAPI.Services
             if(!string.IsNullOrWhiteSpace(request?.FlightTo))
             {
                 query = query.Where(x => x.FlightTo.StartsWith(request.FlightTo));
+            }
+            if (!string.IsNullOrWhiteSpace(request?.FlightTo))
+            {
+                query = query.Where(x => x.FlightTo.StartsWith(request.FlightTo));
+            }
+            if (!string.IsNullOrWhiteSpace(request?.DateFrom.ToShortDateString()))
+            {
+                query = query.Where(x => x.DateFrom==request.DateFrom);
+            }
+            if (!string.IsNullOrWhiteSpace(request?.DateTo.ToShortDateString()))
+            {
+                query = query.Where(x => x.DateTo == request.DateTo);
+            }
+            if (!string.IsNullOrWhiteSpace(request?.selectedClass))
+            {
+                query = query.Where(x => x.FlightClass.Name.StartsWith(request.selectedClass));
             }
             var list = query.ToList();
             return _mapper.Map<List<Model.Flights>>(query);
