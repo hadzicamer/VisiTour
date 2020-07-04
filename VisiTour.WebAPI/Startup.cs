@@ -67,7 +67,7 @@ namespace VisiTour.WebAPI
                 });
 
             });
-            var connection = @"Server=.;Database=IB170172;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=.;Database=170172;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<IB170172Context>(options => options.UseSqlServer(connection));
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuth>("BasicAuthentication", null);

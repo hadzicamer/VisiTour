@@ -9,20 +9,27 @@
         <vm:ClassesViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ScrollView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-            <StackLayout WidthRequest="350">
-                <Label Text="Choose the company: "/>
-                <Picker x:Name="CompaniesPicker" ItemsSource="{Binding CompaniesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCompany}" SelectedIndexChanged="CompaniesPicker_SelectedIndexChanged"></Picker>
-                <Label Text="Headquarter: "></Label>
-                <Label x:Name="lblhq"></Label>
-                <Label Text="Founding year: "></Label>
-                <Label x:Name="lblFy"></Label>
-                <Image x:Name="imgCompany"></Image>
-                <Label Text="Choose the class: "/>
-                <Picker x:Name="ClassesPicker" ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}" SelectedIndexChanged="ClassesPicker_SelectedIndexChanged"></Picker>
-                <Label Text="Description: "></Label>
-                <Label x:Name="txtClass"></Label>
-            </StackLayout>
-        </ScrollView>
+        <StackLayout Opacity="1">
+            <Grid>
+                <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
+                <ScrollView VerticalOptions="End" HorizontalOptions="Center">
+                    <StackLayout Spacing="0">
+                        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="250" WidthRequest="350">
+                        <Label Text="Choose the company: "/>
+                        <Picker x:Name="CompaniesPicker" ItemsSource="{Binding CompaniesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCompany}" SelectedIndexChanged="CompaniesPicker_SelectedIndexChanged"></Picker>
+                        <Label Text="Headquarter: "></Label>
+                        <Label x:Name="lblhq"></Label>
+                        <Label Text="Founding year: "></Label>
+                        <Label x:Name="lblFy"></Label>
+                        <Image x:Name="imgCompany"></Image>
+                        <Label Text="Choose the class: "/>
+                        <Picker x:Name="ClassesPicker" ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}" SelectedIndexChanged="ClassesPicker_SelectedIndexChanged"></Picker>
+                        <Label Text="Description: "></Label>
+                        <Label x:Name="txtClass"></Label>
+                    </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

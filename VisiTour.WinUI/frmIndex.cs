@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using VisiTour.WinUI.Companies;
 using VisiTour.WinUI.Customers;
 using VisiTour.WinUI.Payments;
+using VisiTour.WinUI.SpecialOffers;
 
 namespace VisiTour.WinUI
 {
@@ -141,9 +142,10 @@ namespace VisiTour.WinUI
             frm.Show();
         }
 
-        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnOffers_Click(object sender, EventArgs e)
         {
-            
+            frmOffers frm = new frmOffers();
+            frm.Show();
         }
     }
 }

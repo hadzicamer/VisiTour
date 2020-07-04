@@ -45,6 +45,9 @@ namespace VisiTour.Mobile.Views
                     case (int)MenuItemType.FindFlights:
                         MenuPages.Add(id, new NavigationPage(new FindFlightsPage()));
                         break;
+                    case (int)MenuItemType.Offers:
+                        MenuPages.Add(id, new NavigationPage(new SpecialOffersPage()));
+                        break;
                 }
             }
 

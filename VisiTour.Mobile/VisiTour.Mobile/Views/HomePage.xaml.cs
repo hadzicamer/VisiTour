@@ -51,5 +51,23 @@ namespace VisiTour.Mobile.Views
         {
             await Navigation.PushAsync(new AboutPage());
         }
+
+        private async void findFlights_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new FindFlightsPage());
+
+        }
+
+        private async void class_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ClassesPage());
+
+        }
+
+        private async void offer_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SpecialOffersPage());
+
+        }
     }
 }

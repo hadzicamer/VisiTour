@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,16 @@ namespace VisiTour.WebAPI.Services
         }
 
 
-        // GLAVNI PROBLEM RIJESITI OVERRIDE GETA
-
-        public override List<Model.SpecialOffers> Get(SpecialOffersSearchRequest request)
+        // dodati filter za datum!
+        public override List<Model.SpecialOffers> Get([FromQuery]SpecialOffersSearchRequest request)
         {
  
-            var query = _context.SpecialOffers.AsQueryable();
+            var query = _context.SpecialOffers.Include(x=>x.CityFrom).Include(x=>x.CityTo).Include(x=>x.Company).Include(x=>x.FlightClass).AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(request?.DateFrom.ToString()) || !string.IsNullOrWhiteSpace(request?.DateTo.ToString()))
-            {
-                query = query.Where(x => x.DateFrom.ToString().StartsWith(request.DateFrom.ToString()) || x.DateTo.ToString().StartsWith(request.DateTo.ToString()));
-            }
+            //if (!string.IsNullOrWhiteSpace(request?.DateFrom.ToString()) || !string.IsNullOrWhiteSpace(request?.DateTo.ToString()))
+            //{
+            //    query = query.Where(x => x.DateFrom.ToString().Contains(request.DateFrom.ToString()) || x.DateTo.ToString().StartsWith(request.DateTo.ToString()));
+            //}
             var list = query.ToList();
             return _mapper.Map<List<Model.SpecialOffers>>(query);
         }

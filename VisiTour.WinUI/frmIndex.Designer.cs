@@ -41,6 +41,9 @@
             this.paymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.specialOffersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -48,6 +51,7 @@
             this.btnCompanies = new System.Windows.Forms.Button();
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnPayments = new System.Windows.Forms.Button();
+            this.btnOffers = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +63,8 @@
             this.homeToolStripMenuItem,
             this.customersToolStripMenuItem,
             this.companiesToolStripMenuItem,
-            this.paymentsToolStripMenuItem});
+            this.paymentsToolStripMenuItem,
+            this.specialOffersToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1426, 28);
@@ -71,7 +76,6 @@
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
             this.homeToolStripMenuItem.Text = "Home";
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
@@ -142,6 +146,27 @@
             this.addNewToolStripMenuItem1.Text = "Add new..";
             this.addNewToolStripMenuItem1.Click += new System.EventHandler(this.addNewToolStripMenuItem1_Click);
             // 
+            // specialOffersToolStripMenuItem
+            // 
+            this.specialOffersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.searchToolStripMenuItem3,
+            this.addNewToolStripMenuItem2});
+            this.specialOffersToolStripMenuItem.Name = "specialOffersToolStripMenuItem";
+            this.specialOffersToolStripMenuItem.Size = new System.Drawing.Size(115, 24);
+            this.specialOffersToolStripMenuItem.Text = "Special Offers";
+            // 
+            // searchToolStripMenuItem3
+            // 
+            this.searchToolStripMenuItem3.Name = "searchToolStripMenuItem3";
+            this.searchToolStripMenuItem3.Size = new System.Drawing.Size(157, 26);
+            this.searchToolStripMenuItem3.Text = "Search";
+            // 
+            // addNewToolStripMenuItem2
+            // 
+            this.addNewToolStripMenuItem2.Name = "addNewToolStripMenuItem2";
+            this.addNewToolStripMenuItem2.Size = new System.Drawing.Size(157, 26);
+            this.addNewToolStripMenuItem2.Text = "Add new..";
+            // 
             // statusStrip
             // 
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -184,7 +209,7 @@
             // 
             // btnCustomers
             // 
-            this.btnCustomers.Location = new System.Drawing.Point(449, 543);
+            this.btnCustomers.Location = new System.Drawing.Point(449, 523);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(224, 104);
             this.btnCustomers.TabIndex = 7;
@@ -202,12 +227,23 @@
             this.btnPayments.UseVisualStyleBackColor = true;
             this.btnPayments.Click += new System.EventHandler(this.btnPayments_Click);
             // 
+            // btnOffers
+            // 
+            this.btnOffers.Location = new System.Drawing.Point(1086, 525);
+            this.btnOffers.Name = "btnOffers";
+            this.btnOffers.Size = new System.Drawing.Size(225, 101);
+            this.btnOffers.TabIndex = 11;
+            this.btnOffers.Text = "Special Offers";
+            this.btnOffers.UseVisualStyleBackColor = true;
+            this.btnOffers.Click += new System.EventHandler(this.btnOffers_Click);
+            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1426, 676);
+            this.Controls.Add(this.btnOffers);
             this.Controls.Add(this.btnPayments);
             this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.btnCompanies);
@@ -250,6 +286,10 @@
         private System.Windows.Forms.Button btnCompanies;
         private System.Windows.Forms.Button btnCustomers;
         private System.Windows.Forms.Button btnPayments;
+        private System.Windows.Forms.ToolStripMenuItem specialOffersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem2;
+        private System.Windows.Forms.Button btnOffers;
     }
 }
 

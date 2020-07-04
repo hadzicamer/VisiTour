@@ -36,17 +36,20 @@ namespace VisiTour.Mobile.ViewModels
 
         async Task Login()
         {
+            IsBusy = true;
             APIService.Username = Username;
             APIService.Password = Password;
-            var temp = await _service.Get<List<Customers>>(new CustomerSearchRequest
-            {
-                Username = Username
-            });
-            APIService.Customers = temp.FirstOrDefault();
+        
 
             try
             {
                 await _service.Get<dynamic>(null);
+                var temp = await _service.Get<List<Customers>>(new CustomerSearchRequest
+                {
+                    Username = Username
+                });
+                APIService.Customers = temp.FirstOrDefault();
+                APIService.Customers.CustomerId = temp.Select(x=>x.CustomerId).FirstOrDefault();
                 Application.Current.MainPage = new MainPage();
 
             }

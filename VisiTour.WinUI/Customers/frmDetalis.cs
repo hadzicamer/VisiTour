@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flurl.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,7 +62,7 @@ namespace VisiTour.WinUI.Customers
                 txtName.Text = customer.Name;
                 txtEmail.Text = customer.Email;
                 txtCountry.Text = customer.Country;
-                txtDate.Text = customer.DateOfBirth.ToString().Substring(0, 10);
+                txtDate.Text = customer.DateOfBirth.ToString();
                 txtUsername.Text = customer.Username;
             }
         }

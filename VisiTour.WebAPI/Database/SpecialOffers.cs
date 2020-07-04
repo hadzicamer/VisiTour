@@ -5,6 +5,7 @@ namespace VisiTour.WebAPI.Database
 {
     public partial class SpecialOffers
     {
+
         public int OfferId { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }

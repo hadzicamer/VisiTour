@@ -2,41 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:VisiTour.Mobile.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:VisiTour.Mobile.ViewModels"
              mc:Ignorable="d"
-             x:Class="VisiTour.Mobile.Views.SearchedFlightsPage">
+             x:Class="VisiTour.Mobile.Views.SpecialOffersPage">
     <ContentPage.BindingContext>
-        <viewModel:FindFlightsViewModel/>
+        <vm:SpecialOffersViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding FlightsList}" x:Name="listFlight">
+            <DatePicker></DatePicker>
+    <ListView ItemsSource="{Binding SpecialOffersList}" x:Name="listOffers">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" Orientation="Horizontal">
                                 <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding CityFrom.Name}" 
+                                    <Label Text="{Binding CityFrom.Name}" x:Name="lblCityF" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding DateFrom, StringFormat='{0:dd-MMM-yy}'}" 
+                                    <Label x:Name="lblDateF" Text="{Binding DateFrom,StringFormat='{0:dd-MMM-yy}'}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding CityTo.Name}" 
+                                    <Label x:Name="lblCityT" Text="{Binding CityTo.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding DateTo, StringFormat='{0:dd-MMM-yy}'}" 
+                                    <Label x:Name="lblDateT" Text="{Binding DateTo,StringFormat='{0:dd-MMM-yy}'}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding Price}" 
+                                    <Label Text="{Binding Company.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 

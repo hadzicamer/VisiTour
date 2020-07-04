@@ -21,26 +21,26 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
                         </Grid.ColumnDefinitions>
-                    <Button x:Name="findFlights" Text="Find flights" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                    <Button x:Name="findFlights" Text="Find flights" Clicked="findFlights_Clicked" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
                         </Grid.ColumnDefinitions>
-                        <Button Text="My bookings" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                        <Button Text="Flight Classes" Clicked="class_Clicked" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
                     </Grid>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
                         </Grid.ColumnDefinitions>
-                        <Button Text="My bookmarks" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                        <Button Text="Special offers" Clicked="offer_Clicked" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
                     </Grid>
-                    <Grid>
+                    <!--<Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
                         </Grid.ColumnDefinitions>
                         <Button Text="My Flight informations" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
-                    </Grid>
+                    </Grid>-->
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
