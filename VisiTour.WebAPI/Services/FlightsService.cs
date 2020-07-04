@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using VisiTour.Model;
 using VisiTour.Model.Requests;
@@ -19,20 +20,18 @@ namespace VisiTour.WebAPI.Services
 
         public override List<Model.Flights> Get([FromQuery]FlightsSearchRequest request)
         {
-            var query = _context.Flights.Include(x=>x.FlightClass).AsQueryable();
+            var query = _context.Flights.Include(x=>x.FlightClass).Include(x=>x.CityFrom).Include(x=>x.CityTo).AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(request?.FlightFrom))
+            if (!string.IsNullOrWhiteSpace(request?.selectedFlightFrom))
             {
-                query = query.Where(x => x.FlightFrom.StartsWith(request.FlightFrom));
+                query = query.Where(x => x.CityFrom.Name.StartsWith(request.selectedFlightFrom));
             }
-            if(!string.IsNullOrWhiteSpace(request?.FlightTo))
+
+            if (!string.IsNullOrWhiteSpace(request?.selectedFlightTo))
             {
-                query = query.Where(x => x.FlightTo.StartsWith(request.FlightTo));
+                query = query.Where(x => x.CityTo.Name.StartsWith(request.selectedFlightTo));
             }
-            if (!string.IsNullOrWhiteSpace(request?.FlightTo))
-            {
-                query = query.Where(x => x.FlightTo.StartsWith(request.FlightTo));
-            }
+          
             if (!string.IsNullOrWhiteSpace(request?.DateFrom.ToShortDateString()))
             {
                 query = query.Where(x => x.DateFrom==request.DateFrom);

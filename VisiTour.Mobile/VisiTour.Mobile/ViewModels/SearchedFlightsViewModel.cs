@@ -10,8 +10,8 @@ namespace VisiTour.Mobile.ViewModels
 {
     public class SearchedFlightsViewModel
     {
-        public ObservableCollection<Flights> FlightsList { get; set; } = new ObservableCollection<Flights>();
         private readonly APIService _flightsService = new APIService("Flights");
+        public ObservableCollection<Flights> FlightsList { get; set; } = new ObservableCollection<Flights>();
 
         public FindFlightsViewModel search { get; set; }
 
@@ -20,8 +20,8 @@ namespace VisiTour.Mobile.ViewModels
 
             FlightsSearchRequest srch = new FlightsSearchRequest
             {
-                FlightFrom = search.FlightFrom,
-                FlightTo = search.FlightTo,
+                selectedFlightFrom = search.FlightFrom,
+                selectedFlightTo = search.FlightTo,
                 selectedClass = search.Class,
                 DateFrom = search.DateFrom,
                 DateTo = search.DateTo

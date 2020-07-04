@@ -8,7 +8,6 @@ namespace VisiTour.WebAPI.Database
         public Customers()
         {
             Bookings = new HashSet<Bookings>();
-            Flights = new HashSet<Flights>();
         }
 
         public int CustomerId { get; set; }
@@ -23,6 +22,5 @@ namespace VisiTour.WebAPI.Database
 
         public virtual Roles Role { get; set; }
         public virtual ICollection<Bookings> Bookings { get; set; }
-        public virtual ICollection<Flights> Flights { get; set; }
     }
 }

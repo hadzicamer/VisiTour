@@ -10,8 +10,10 @@ namespace VisiTour.WebAPI.Database
         public int? CustomerId { get; set; }
         public int? StatusId { get; set; }
         public int? PaymentId { get; set; }
+        public int? FlightId { get; set; }
 
         public virtual Customers Customer { get; set; }
+        public virtual Flights Flight { get; set; }
         public virtual Payments Payment { get; set; }
         public virtual FlightStatus Status { get; set; }
     }

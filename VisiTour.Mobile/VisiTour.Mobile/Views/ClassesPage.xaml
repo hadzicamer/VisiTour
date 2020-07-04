@@ -11,18 +11,18 @@
     <ContentPage.Content>
         <ScrollView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <StackLayout WidthRequest="350">
-            <Label Text="Choose the company: "/>
-            <Picker x:Name="CompaniesPicker" ItemsSource="{Binding CompaniesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCompany}" SelectedIndexChanged="CompaniesPicker_SelectedIndexChanged"></Picker>
-            <Label Text="Headquarter: "></Label>
-            <Label x:Name="lblhq"></Label>
-            <Label Text="Founding year: "></Label>
-            <Label x:Name="lblFy"></Label>
-            <Image x:Name="imgCompany"></Image>
-            <Label Text="Choose the class: "/>
-            <Picker x:Name="ClassesPicker" ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}" SelectedIndexChanged="ClassesPicker_SelectedIndexChanged"></Picker>
-            <Label Text="Description: "></Label>
-            <Label x:Name="txtClass"></Label>
-        </StackLayout>
+                <Label Text="Choose the company: "/>
+                <Picker x:Name="CompaniesPicker" ItemsSource="{Binding CompaniesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCompany}" SelectedIndexChanged="CompaniesPicker_SelectedIndexChanged"></Picker>
+                <Label Text="Headquarter: "></Label>
+                <Label x:Name="lblhq"></Label>
+                <Label Text="Founding year: "></Label>
+                <Label x:Name="lblFy"></Label>
+                <Image x:Name="imgCompany"></Image>
+                <Label Text="Choose the class: "/>
+                <Picker x:Name="ClassesPicker" ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}" SelectedIndexChanged="ClassesPicker_SelectedIndexChanged"></Picker>
+                <Label Text="Description: "></Label>
+                <Label x:Name="txtClass"></Label>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

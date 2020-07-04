@@ -101,8 +101,6 @@ namespace VisiTour.Mobile.ViewModels
 
         private FlightClasses _selectedClass;
 
-      
-
         public FlightClasses SelectedClass
         {
             get { return _selectedClass; }

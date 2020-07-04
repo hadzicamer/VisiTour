@@ -12,6 +12,5 @@ namespace VisiTour.WebAPI.Services
         Model.Customers GetById(int id);
         Model.Customers Insert(PaymentsUpsertRequest request);
         Model.Customers Update(int id, PaymentsUpsertRequest request);
-        //Model.Customers Delete(int id);
     }
 }

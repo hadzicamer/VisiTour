@@ -50,6 +50,8 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.Details).HasMaxLength(100);
 
+                entity.Property(e => e.FlightId).HasColumnName("FlightID");
+
                 entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
 
                 entity.Property(e => e.StatusId).HasColumnName("StatusID");
@@ -58,6 +60,11 @@ namespace VisiTour.WebAPI.Database
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Bookings_Customer");
+
+                entity.HasOne(d => d.Flight)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.FlightId)
+                    .HasConstraintName("FK_FlightB");
 
                 entity.HasOne(d => d.Payment)
                     .WithMany(p => p.Bookings)
@@ -195,13 +202,11 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.FlightId).HasColumnName("FlightID");
 
-                entity.Property(e => e.CityId).HasColumnName("CityID");
+                entity.Property(e => e.CityFromId).HasColumnName("CityFromID");
+
+                entity.Property(e => e.CityToId).HasColumnName("CityToID");
 
                 entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
-
-                entity.Property(e => e.CountryId).HasColumnName("CountryID");
-
-                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
                 entity.Property(e => e.DateFrom).HasColumnType("date");
 
@@ -209,33 +214,24 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.FlightClassId).HasColumnName("FlightClassID");
 
-                entity.Property(e => e.FlightFrom).HasMaxLength(50);
-
                 entity.Property(e => e.FlightSeatId).HasColumnName("FlightSeatID");
-
-                entity.Property(e => e.FlightTo).HasMaxLength(50);
 
                 entity.Property(e => e.Price).HasColumnType("money");
 
-                entity.HasOne(d => d.City)
-                    .WithMany(p => p.Flights)
-                    .HasForeignKey(d => d.CityId)
-                    .HasConstraintName("FK_Flights_City");
+                entity.HasOne(d => d.CityFrom)
+                    .WithMany(p => p.FlightsCityFrom)
+                    .HasForeignKey(d => d.CityFromId)
+                    .HasConstraintName("FK_CityFrom");
+
+                entity.HasOne(d => d.CityTo)
+                    .WithMany(p => p.FlightsCityTo)
+                    .HasForeignKey(d => d.CityToId)
+                    .HasConstraintName("FK_CityTo");
 
                 entity.HasOne(d => d.Company)
                     .WithMany(p => p.Flights)
                     .HasForeignKey(d => d.CompanyId)
                     .HasConstraintName("FK_Flights_Companies");
-
-                entity.HasOne(d => d.Country)
-                    .WithMany(p => p.Flights)
-                    .HasForeignKey(d => d.CountryId)
-                    .HasConstraintName("FK_Flights_Country");
-
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Flights)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Flights_Customer");
 
                 entity.HasOne(d => d.FlightClass)
                     .WithMany(p => p.Flights)
@@ -283,7 +279,9 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.OfferId).HasColumnName("OfferID");
 
-                entity.Property(e => e.CityId).HasColumnName("CityID");
+                entity.Property(e => e.CityFromId).HasColumnName("CityFromID");
+
+                entity.Property(e => e.CityToId).HasColumnName("CityToID");
 
                 entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
 
@@ -293,10 +291,15 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.FlightClassId).HasColumnName("FlightClassID");
 
-                entity.HasOne(d => d.City)
-                    .WithMany(p => p.SpecialOffers)
-                    .HasForeignKey(d => d.CityId)
-                    .HasConstraintName("FK_CityS");
+                entity.HasOne(d => d.CityFrom)
+                    .WithMany(p => p.SpecialOffersCityFrom)
+                    .HasForeignKey(d => d.CityFromId)
+                    .HasConstraintName("FK_CityFromSO");
+
+                entity.HasOne(d => d.CityTo)
+                    .WithMany(p => p.SpecialOffersCityTo)
+                    .HasForeignKey(d => d.CityToId)
+                    .HasConstraintName("FK_CityToSO");
 
                 entity.HasOne(d => d.Company)
                     .WithMany(p => p.SpecialOffers)
