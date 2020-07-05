@@ -10,7 +10,6 @@ namespace VisiTour.Model
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
         public decimal? Price { get; set; }
-
         public virtual Cities CityFrom { get; set; }
         public virtual Cities CityTo { get; set; }
         public Companies Company { get; set; }

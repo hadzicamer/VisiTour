@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Net;
 using System.Text;
 
 namespace VisiTour.Model
@@ -15,6 +16,8 @@ namespace VisiTour.Model
         public int? CompanyId { get; set; }
         public int? CityFromId { get; set; }
         public int? CityToId { get; set; }
+        public decimal? Price{ get; set; }
+
 
         public virtual Cities CityFrom { get; set; }
         public virtual Cities CityTo { get; set; }

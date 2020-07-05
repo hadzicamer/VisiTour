@@ -111,18 +111,19 @@ namespace VisiTour.Mobile.ViewModels
             }
         }
 
-        private DateTime _dateFrom = DateTime.Now;
-        public DateTime DateFrom
+        private DateTime? _dateFrom = null;
+        public DateTime? DateFrom
         {
             get { return _dateFrom; }
             set
             {
                 _dateFrom = value;
+
             }
         }
 
-        private DateTime _dateTo = DateTime.Now;
-        public DateTime DateTo
+        private DateTime? _dateTo = null;
+        public DateTime? DateTo
         {
             get { return _dateTo; }
             set

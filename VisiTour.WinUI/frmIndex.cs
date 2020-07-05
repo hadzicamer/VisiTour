@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisiTour.WinUI.Companies;
 using VisiTour.WinUI.Customers;
-using VisiTour.WinUI.Payments;
+using VisiTour.WinUI.Flights;
 using VisiTour.WinUI.SpecialOffers;
 
 namespace VisiTour.WinUI
@@ -111,18 +104,6 @@ namespace VisiTour.WinUI
             frm.Show();
         }
 
-        private void searchToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            frmPayments frm = new frmPayments();
-            //frm.MdiParent = this;
-            frm.Show();
-        }
-
-        private void addNewToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frmPaymentsDetails frm = new frmPaymentsDetails();
-            frm.Show();
-        }
 
         private void btnCompanies_Click(object sender, EventArgs e)
         {
@@ -130,11 +111,7 @@ namespace VisiTour.WinUI
             frm.Show();
         }
 
-        private void btnPayments_Click(object sender, EventArgs e)
-        {
-            frmPayments frm = new frmPayments();
-            frm.Show();
-        }
+     
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
@@ -144,7 +121,49 @@ namespace VisiTour.WinUI
 
         private void btnOffers_Click(object sender, EventArgs e)
         {
-            frmOffers frm = new frmOffers();
+            frmOffersDetails frm = new frmOffersDetails();
+            frm.Show();
+        }
+
+        private void addNewToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmOffersDetails frm = new frmOffersDetails();
+            frm.Show();
+        }
+
+        private void searchToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmFlights frm = new frmFlights();
+            frm.Show();
+        }
+
+        private void addNewToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmFlightsDetails frm = new frmFlightsDetails();
+            frm.Show();
+        }
+
+        private void btnFlights_Click_1(object sender, EventArgs e)
+        {
+            frmFlights frm = new frmFlights();
+            frm.Show();
+        }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customers.frmReport frm = new Customers.frmReport();
+            frm.Show();
+        }
+
+        private void reportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Companies.frmReport frm = new Companies.frmReport();
+            frm.Show();
+        }
+
+        private void reportToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Flights.frmReport frm = new Flights.frmReport();
             frm.Show();
         }
     }

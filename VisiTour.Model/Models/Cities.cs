@@ -4,10 +4,9 @@ using System.Text;
 
 namespace VisiTour.Model
 {
-    public class Cities
+   public class Cities
     {
         public int CityId { get; set; }
         public string Name { get; set; }
-
     }
 }

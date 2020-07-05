@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VisiTour.Mobile.Views;
@@ -11,9 +11,11 @@ using Xamarin.Forms;
 
 namespace VisiTour.Mobile.ViewModels
 {
+
     public class LoginViewModel:BaseViewModel
     {
-        private readonly APIService _service = new APIService("Customers");
+        private readonly APIService _service = new APIService("Bookings");
+        private readonly APIService _serviceUser = new APIService("Customers");
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
@@ -39,22 +41,25 @@ namespace VisiTour.Mobile.ViewModels
             IsBusy = true;
             APIService.Username = Username;
             APIService.Password = Password;
-        
 
             try
             {
-                await _service.Get<dynamic>(null);
-                var temp = await _service.Get<List<Customers>>(new CustomerSearchRequest
+                var y = await _service.Get<List<Bookings>>(null);
+                if(y != default)
                 {
-                    Username = Username
-                });
-                APIService.Customers = temp.FirstOrDefault();
-                APIService.Customers.CustomerId = temp.Select(x=>x.CustomerId).FirstOrDefault();
-                Application.Current.MainPage = new MainPage();
+                    var temp = await _serviceUser.Get<List<Customers>>(new CustomerSearchRequest
+                    {
+                        Username = Username
+                    });
+                    APIService.Customers = temp.FirstOrDefault();
+                    APIService.Customers.CustomerId = temp.Select(x => x.CustomerId).FirstOrDefault();
+                    Application.Current.MainPage = new MainPage();
+                }
 
             }
             catch (Exception ex)
             {
+                
             }
         }
     }

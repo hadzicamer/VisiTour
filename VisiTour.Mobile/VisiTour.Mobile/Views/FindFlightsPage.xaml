@@ -6,6 +6,8 @@
              mc:Ignorable="d"
              x:Class="VisiTour.Mobile.Views.FindFlightsPage">
     <ContentPage.Content>
+            <Grid>
+                <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="From: "></Label>
             <Picker x:Name="cityFrom" ItemsSource="{Binding CitiesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCityFrom}"></Picker>
@@ -19,5 +21,6 @@
             <Picker ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}"></Picker>
             <Button Text="Search" BackgroundColor="LightGreen" Clicked="Search_Clicked" ></Button>
         </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

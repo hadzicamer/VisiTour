@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,52 @@ namespace VisiTour.WinUI.Companies
                 await _service.Insert<Model.Companies>(req);
                 MessageBox.Show("New company addded!");
             }
+        }
+
+        CompaniesUpsertRequest req = new CompaniesUpsertRequest();
+
+        private void btnAddImage_Click_1(object sender, EventArgs e)
+        {
+            var res = openFileDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                req.Photo = file;
+                txtphoto.Text = fileName;
+                Image image = Image.FromFile(fileName);
+                pictureBox1.Image = image;
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                errorProvider1.SetError(txtName, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider1.SetError(txtName, null);
+            }
+
+        }
+
+        private void txthq_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txthq.Text))
+            {
+                errorProvider1.SetError(txthq, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider1.SetError(txthq, null);
+            }
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
@@ -28,7 +29,7 @@ namespace VisiTour.WebAPI.Services
 
         public Model.Customers Autentifikacija(string username, string pass)
         {
-            Database.Customers user = _context.Customers.Include(x => x.Role).FirstOrDefault(x => x.Username == username);
+            Customers user = _context.Customers.Include(x => x.Role).FirstOrDefault(x => x.Username == username);
 
             if (user != null)
             {
@@ -43,7 +44,7 @@ namespace VisiTour.WebAPI.Services
 
         public List<Model.Customers> Get([FromQuery]CustomerSearchRequest request)
         {
-            var query = _context.Customers.AsQueryable();
+            var query = _context.Customers.Include(x=>x.Role).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request?.Name))
             {

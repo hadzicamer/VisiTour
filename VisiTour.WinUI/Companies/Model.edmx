@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Headquarter" Type="nvarchar" MaxLength="50" />
+          <Property Name="FoundingYear" Type="nvarchar" MaxLength="50" />
+          <Property Name="FlightClassID" Type="int" />
+          <Property Name="photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="flag" Type="image" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightID" />
+          </Key>
+          <Property Name="FlightID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateFrom" Type="date" />
+          <Property Name="DateTo" Type="date" />
+          <Property Name="Price" Type="money" />
+          <Property Name="FlightClassID" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="FlightSeatID" Type="int" />
+          <Property Name="CityFromID" Type="int" />
+          <Property Name="CityToID" Type="int" />
+        </EntityType>
+        <EntityType Name="SpecialOffers">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="OfferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateFrom" Type="date" />
+          <Property Name="DateTo" Type="date" />
+          <Property Name="FlightClassID" Type="int" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="CityFromID" Type="int" />
+          <Property Name="CityToID" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <Association Name="FK_CityFrom">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityFromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityFromSO">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="SpecialOffers" Type="Self.SpecialOffers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="SpecialOffers">
+              <PropertyRef Name="CityFromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTo">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityToSO">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="SpecialOffers" Type="Self.SpecialOffers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="SpecialOffers">
+              <PropertyRef Name="CityToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flights_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flights_CompaniesS">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <End Role="SpecialOffers" Type="Self.SpecialOffers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="SpecialOffers">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flights" EntityType="Self.Flights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpecialOffers" EntityType="Self.SpecialOffers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CityFrom" Association="Self.FK_CityFrom">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityFromSO" Association="Self.FK_CityFromSO">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="SpecialOffers" EntitySet="SpecialOffers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTo" Association="Self.FK_CityTo">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityToSO" Association="Self.FK_CityToSO">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="SpecialOffers" EntitySet="SpecialOffers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flights_Companies" Association="Self.FK_Flights_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flights_CompaniesS" Association="Self.FK_Flights_CompaniesS">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="SpecialOffers" EntitySet="SpecialOffers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Flights" Relationship="Self.FK_CityFrom" FromRole="Cities" ToRole="Flights" />
+          <NavigationProperty Name="SpecialOffers" Relationship="Self.FK_CityFromSO" FromRole="Cities" ToRole="SpecialOffers" />
+          <NavigationProperty Name="Flights1" Relationship="Self.FK_CityTo" FromRole="Cities" ToRole="Flights" />
+          <NavigationProperty Name="SpecialOffers1" Relationship="Self.FK_CityToSO" FromRole="Cities" ToRole="SpecialOffers" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Headquarter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FoundingYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FlightClassID" Type="Int32" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Flights" Relationship="Self.FK_Flights_Companies" FromRole="Companies" ToRole="Flights" />
+          <NavigationProperty Name="SpecialOffers" Relationship="Self.FK_Flights_CompaniesS" FromRole="Companies" ToRole="SpecialOffers" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flag" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightID" />
+          </Key>
+          <Property Name="FlightID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateFrom" Type="DateTime" Precision="0" />
+          <Property Name="DateTo" Type="DateTime" Precision="0" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FlightClassID" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="FlightSeatID" Type="Int32" />
+          <Property Name="CityFromID" Type="Int32" />
+          <Property Name="CityToID" Type="Int32" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_CityFrom" FromRole="Flights" ToRole="Cities" />
+          <NavigationProperty Name="Cities1" Relationship="Self.FK_CityTo" FromRole="Flights" ToRole="Cities" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Flights_Companies" FromRole="Flights" ToRole="Companies" />
+        </EntityType>
+        <EntityType Name="SpecialOffers">
+          <Key>
+            <PropertyRef Name="OfferID" />
+          </Key>
+          <Property Name="OfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateFrom" Type="DateTime" Precision="0" />
+          <Property Name="DateTo" Type="DateTime" Precision="0" />
+          <Property Name="FlightClassID" Type="Int32" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="CityFromID" Type="Int32" />
+          <Property Name="CityToID" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_CityFromSO" FromRole="SpecialOffers" ToRole="Cities" />
+          <NavigationProperty Name="Cities1" Relationship="Self.FK_CityToSO" FromRole="SpecialOffers" ToRole="Cities" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Flights_CompaniesS" FromRole="SpecialOffers" ToRole="Companies" />
+        </EntityType>
+        <Association Name="FK_CityFrom">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityFromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityFromSO">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="SpecialOffers" Type="Self.SpecialOffers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="SpecialOffers">
+              <PropertyRef Name="CityFromID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTo">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CityToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityToSO">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="SpecialOffers" Type="Self.SpecialOffers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="SpecialOffers">
+              <PropertyRef Name="CityToID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flights_Companies">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <End Role="Flights" Type="Self.Flights" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Flights">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Flights_CompaniesS">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <End Role="SpecialOffers" Type="Self.SpecialOffers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="SpecialOffers">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Flights" EntityType="Self.Flights" />
+          <EntitySet Name="SpecialOffers" EntityType="Self.SpecialOffers" />
+          <AssociationSet Name="FK_CityFrom" Association="Self.FK_CityFrom">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityFromSO" Association="Self.FK_CityFromSO">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="SpecialOffers" EntitySet="SpecialOffers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTo" Association="Self.FK_CityTo">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityToSO" Association="Self.FK_CityToSO">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="SpecialOffers" EntitySet="SpecialOffers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flights_Companies" Association="Self.FK_Flights_Companies">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Flights" EntitySet="Flights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Flights_CompaniesS" Association="Self.FK_Flights_CompaniesS">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="SpecialOffers" EntitySet="SpecialOffers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Model.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="Model.Companies">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Headquarter" ColumnName="Headquarter" />
+                <ScalarProperty Name="FoundingYear" ColumnName="FoundingYear" />
+                <ScalarProperty Name="FlightClassID" ColumnName="FlightClassID" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Model.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="flag" ColumnName="flag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flights">
+            <EntityTypeMapping TypeName="Model.Flights">
+              <MappingFragment StoreEntitySet="Flights">
+                <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FlightClassID" ColumnName="FlightClassID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="FlightSeatID" ColumnName="FlightSeatID" />
+                <ScalarProperty Name="CityFromID" ColumnName="CityFromID" />
+                <ScalarProperty Name="CityToID" ColumnName="CityToID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialOffers">
+            <EntityTypeMapping TypeName="Model.SpecialOffers">
+              <MappingFragment StoreEntitySet="SpecialOffers">
+                <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="FlightClassID" ColumnName="FlightClassID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CityFromID" ColumnName="CityFromID" />
+                <ScalarProperty Name="CityToID" ColumnName="CityToID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

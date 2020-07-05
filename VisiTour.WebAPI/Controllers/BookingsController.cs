@@ -11,7 +11,6 @@ using VisiTour.WebAPI.Services;
 
 namespace VisiTour.WebAPI.Controllers
 {
-    [Authorize(Roles = "Administrator")]
     [Route("api/[controller]")]
     [ApiController]
     public class BookingsController : ControllerBase
@@ -21,7 +20,8 @@ namespace VisiTour.WebAPI.Controllers
         {
             _service = service;
         }
-
+        
+        [Authorize(Roles = "User")]
         [HttpGet]
         public List<Model.Bookings> Get([FromQuery]BookingsSearchRequest search)
         {

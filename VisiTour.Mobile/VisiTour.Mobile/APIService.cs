@@ -51,7 +51,11 @@ namespace VisiTour.Mobile
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
                 }
-            throw;
+                if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Forbidden)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Forbidden", "Try again");
+                }
+                return default(T);
             }
         }
 

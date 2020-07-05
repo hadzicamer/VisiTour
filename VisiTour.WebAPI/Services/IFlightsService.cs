@@ -13,5 +13,6 @@ namespace VisiTour.WebAPI.Services
         Model.Flights Update(int id, FlightsUpsertRequest request);
         Model.Flights Insert(FlightsUpsertRequest request);
         Model.Flights Delete(int id);
+        List<Model.Flights> Recommend(int id);
     }
 }

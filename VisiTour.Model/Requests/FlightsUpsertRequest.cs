@@ -6,10 +6,16 @@ namespace VisiTour.Model.Requests
 {
     public class FlightsUpsertRequest
     {
-        public string FlightFrom { get; set; }
-        public string FlightTo { get; set; }
+    
+        public int FlightId { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
         public decimal? Price { get; set; }
+        public int? FlightClassId { get; set; }
+        public int? CompanyId { get; set; }
+        public int? FlightSeatId { get; set; }
+        public int? CityFromId { get; set; }
+        public int? CityToId { get; set; }
+
     }
 }

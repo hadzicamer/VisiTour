@@ -18,7 +18,7 @@ namespace VisiTour.WinUI.Customers
     {
         private readonly APIService _service = new APIService("Customers");
         private int? _CustomerID = null;
-        public frmDetalis(int? CustomerID=null)
+        public frmDetalis(int? CustomerID = null)
         {
             InitializeComponent();
             _CustomerID = CustomerID;
@@ -36,7 +36,7 @@ namespace VisiTour.WinUI.Customers
                     Country = txtCountry.Text,
                     Password = txtPass.Text,
                     ConfirmPassword = txtPassConfirm.Text,
-                    DateOfBirth = DateTime.Parse(txtDate.Text),
+                    DateOfBirth = DateTime.Parse(txtDate.Text)
                 };
 
                 if (_CustomerID.HasValue)
@@ -47,7 +47,7 @@ namespace VisiTour.WinUI.Customers
                 else
                 {
                     await _service.Insert<Model.Customers>(req);
-                MessageBox.Show("New customer added!");
+                    MessageBox.Show("New customer added!");
                 }
 
             }
@@ -62,7 +62,7 @@ namespace VisiTour.WinUI.Customers
                 txtName.Text = customer.Name;
                 txtEmail.Text = customer.Email;
                 txtCountry.Text = customer.Country;
-                txtDate.Text = customer.DateOfBirth.ToString();
+                txtDate.Text = customer.DateOfBirth.ToString().Substring(0, 10);
                 txtUsername.Text = customer.Username;
             }
         }
@@ -95,6 +95,20 @@ namespace VisiTour.WinUI.Customers
             }
         }
 
-      
+        private void txtDate_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDate.Text))
+            {
+                errorProvider.SetError(txtDate, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider.SetError(txtDate, null);
+            }
+
+
+        }
     }
 }

@@ -67,13 +67,11 @@ namespace VisiTour.WebAPI
                 });
 
             });
-            var connection = @"Server=.;Database=170172;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<IB170172Context>(options => options.UseSqlServer(connection));
+            services.AddDbContext<IB170172Context>(opt => opt.UseSqlServer(Configuration.GetConnectionString("visitourDB")).EnableSensitiveDataLogging());
             services.AddAuthentication("BasicAuthentication")
                 .AddScheme<AuthenticationSchemeOptions, BasicAuth>("BasicAuthentication", null);
 
             services.AddAutoMapper(typeof(Startup));
-            //services.AddScoped<ICRUDService<Model.Customers, CustomerSearchRequest, CustomersUpsertRequest, CustomersUpsertRequest>, CustomerService>();
             services.AddScoped<ICRUDService<Model.Companies,CompaniesSearchRequest,CompaniesUpsertRequest, CompaniesUpsertRequest>,CompaniesService>();
             services.AddScoped<ICRUDService<Model.Payments, PaymentsSearchRequest, PaymentsUpsertRequest, PaymentsUpsertRequest>, PaymentsService>();
             services.AddScoped<ICRUDService<Model.Flights, FlightsSearchRequest, FlightsUpsertRequest, FlightsUpsertRequest>, FlightsService>();
@@ -110,6 +108,7 @@ namespace VisiTour.WebAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = "";
             });
 
 

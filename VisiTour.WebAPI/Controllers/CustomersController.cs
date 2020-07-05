@@ -13,8 +13,6 @@ using VisiTour.WebAPI.Services;
 
 namespace VisiTour.WebAPI.Controllers
 {
-    [Authorize(Roles = "Administrator")]
-
     [Route("api/[controller]")]
     [ApiController]
     public class CustomersController :ControllerBase
@@ -24,7 +22,6 @@ namespace VisiTour.WebAPI.Controllers
         {
             _service = service;
         }
-
         [HttpGet]
         public List<Model.Customers> Get([FromQuery]CustomerSearchRequest search)
         {
@@ -37,7 +34,6 @@ namespace VisiTour.WebAPI.Controllers
         {
             return _service.GetById(id);
         }
-
         [HttpPost]
         public Model.Customers Insert(CustomersUpsertRequest request)
         {

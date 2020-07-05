@@ -9,8 +9,8 @@ namespace VisiTour.Model.Requests
     {
         public string selectedFlightFrom { get; set; }
         public string selectedFlightTo { get; set; }
-        public DateTime DateFrom { get; set; }
-        public DateTime DateTo { get; set; }
+        public DateTime? DateFrom { get; set; }
+        public DateTime? DateTo { get; set; }
         public string selectedClass { get; set; }
 
     }

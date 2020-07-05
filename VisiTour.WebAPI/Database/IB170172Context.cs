@@ -291,6 +291,10 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.FlightClassId).HasColumnName("FlightClassID");
 
+                entity.Property(e => e.Photo).HasColumnType("image");
+
+                entity.Property(e => e.Price).HasColumnType("money");
+
                 entity.HasOne(d => d.CityFrom)
                     .WithMany(p => p.SpecialOffersCityFrom)
                     .HasForeignKey(d => d.CityFromId)

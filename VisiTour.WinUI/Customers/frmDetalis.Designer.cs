@@ -63,6 +63,7 @@
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(310, 22);
             this.txtDate.TabIndex = 3;
+            this.txtDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtDate_Validating_1);
             // 
             // txtCountry
             // 

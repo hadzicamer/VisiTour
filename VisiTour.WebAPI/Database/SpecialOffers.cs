@@ -5,7 +5,6 @@ namespace VisiTour.WebAPI.Database
 {
     public partial class SpecialOffers
     {
-
         public int OfferId { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
@@ -13,6 +12,8 @@ namespace VisiTour.WebAPI.Database
         public int? CompanyId { get; set; }
         public int? CityFromId { get; set; }
         public int? CityToId { get; set; }
+        public decimal? Price { get; set; }
+        public byte[] Photo { get; set; }
 
         public virtual Cities CityFrom { get; set; }
         public virtual Cities CityTo { get; set; }

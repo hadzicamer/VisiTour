@@ -9,8 +9,9 @@
         <vm:SpecialOffersViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <DatePicker></DatePicker>
+        <Grid>
+            <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
+            <StackLayout>
     <ListView ItemsSource="{Binding SpecialOffersList}" x:Name="listOffers">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -54,5 +55,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
+          </Grid>
     </ContentPage.Content>
 </ContentPage>

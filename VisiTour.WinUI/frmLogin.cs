@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace VisiTour.WinUI
 {
     public partial class frmLogin : Form
     {
-        APIService _service = new APIService("Customers");
+        APIService _service = new APIService("CreditCards");
         public frmLogin()
         {
             InitializeComponent();
@@ -25,9 +26,9 @@ namespace VisiTour.WinUI
                 APIService.Username =txtUsername.Text;
                 APIService.Password = txtPassword.Text;
                 await _service.Get<dynamic>(null);
-
                 frmIndex frm = new frmIndex();
                 frm.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {

@@ -13,5 +13,7 @@ namespace VisiTour.Model.Requests
         public string Headquarter { get; set; }
         public string FoundingYear { get; set; }
         public string Country { get; set; }
+        public byte[] Photo { get; set; }
+
     }
 }

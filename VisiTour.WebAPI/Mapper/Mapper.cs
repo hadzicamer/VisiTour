@@ -28,6 +28,7 @@ namespace VisiTour.WebAPI.Mappers
             CreateMap<Database.FlightSeats, Model.FlightSeats>();
             CreateMap<Database.Bookings, Model.Bookings>();
             CreateMap<Database.SpecialOffers, Model.SpecialOffers>();
+            CreateMap<SpecialOffersUpsertRequest, Database.SpecialOffers>();
             CreateMap<Database.FlightStatus, Model.FlightStatus>();
             CreateMap<Database.FlightClasses, Model.FlightClasses>();
             CreateMap<Database.CreditCards, Model.CreditCards>();

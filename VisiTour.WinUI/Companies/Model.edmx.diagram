@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be214be08c1a456db356fd751d11dc57" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Cities" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Companies" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Countries" Width="1.5" PointX="2.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customers" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Flights" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SpecialOffers" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_CityFrom" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CityFromSO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CityTo" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_CityToSO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Flights_Companies" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Flights_CompaniesS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
