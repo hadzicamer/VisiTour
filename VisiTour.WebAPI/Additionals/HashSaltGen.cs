@@ -25,7 +25,7 @@ namespace VisiTour.WebAPI.Additionals
             System.Buffer.BlockCopy(src, 0, dst, 0, src.Length);
             System.Buffer.BlockCopy(bytes, 0, dst, src.Length, bytes.Length);
 
-            HashAlgorithm algorithm = HashAlgorithm.Create("SHA512");
+            HashAlgorithm algorithm = HashAlgorithm.Create("SHA1");
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }

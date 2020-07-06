@@ -36,7 +36,7 @@ namespace VisiTour.WebAPI.Security
 
             Model.Customers user = null;
             try
-            {
+            {// sto ne stane ovde
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');

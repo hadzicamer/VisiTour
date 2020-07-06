@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Any;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,7 +24,7 @@ namespace VisiTour.WebAPI.Database
                 RoleId = 2,
                 Name = "User"
             });
-
+            
             // admin
             Customers c1 = new Customers
             {

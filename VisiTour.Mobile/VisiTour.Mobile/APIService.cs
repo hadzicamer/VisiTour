@@ -33,7 +33,7 @@ namespace VisiTour.Mobile
         public async Task<T> Get<T>(object search)
         {
             var url = $"{_APIurl}/{_route}";
-
+            
             try
             {
                 if (search != null)
@@ -41,7 +41,7 @@ namespace VisiTour.Mobile
                     url += "?";
                     url += await search.ToQueryString();
                 }
-
+                // pa isti je
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             }

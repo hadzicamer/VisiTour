@@ -38,7 +38,7 @@ namespace VisiTour.WebAPI.Services
                 {
                     return _mapper.Map<Model.Customers>(user);
                 }
-            }
+            }// kako je moguce da hash nije isti
             return null;
         }
 
