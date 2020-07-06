@@ -41,7 +41,6 @@ namespace VisiTour.Mobile
                     url += "?";
                     url += await search.ToQueryString();
                 }
-                // pa isti je
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
             }
