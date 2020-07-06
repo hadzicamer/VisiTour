@@ -24,7 +24,8 @@ namespace VisiTour.Mobile.ViewModels
                 selectedFlightTo = search.FlightTo,
                 selectedClass = search.Class,
                 DateFrom = search.DateFrom,
-                DateTo = search.DateTo
+                DateTo = search.DateTo,
+                Price=search.Price
             };
             var temp = await _flightsService.Get<List<Flights>>(srch);
             FlightsList.Clear();

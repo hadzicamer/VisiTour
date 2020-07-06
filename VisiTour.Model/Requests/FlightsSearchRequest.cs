@@ -12,6 +12,7 @@ namespace VisiTour.Model.Requests
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
         public string selectedClass { get; set; }
+        public decimal? Price { get; set; }
 
     }
 }

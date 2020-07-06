@@ -180,12 +180,6 @@
     <Compile Include="Flights\frmFlightsDetails.Designer.cs">
       <DependentUpon>frmFlightsDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flights\frmReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Flights\frmReport.Designer.cs">
-      <DependentUpon>frmReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,9 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Flights\frmFlightsDetails.resx">
       <DependentUpon>frmFlightsDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Flights\frmReport.resx">
-      <DependentUpon>frmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>

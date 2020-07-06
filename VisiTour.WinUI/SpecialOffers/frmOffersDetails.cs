@@ -130,5 +130,13 @@ namespace VisiTour.WinUI.SpecialOffers
             }
 
         }
+
+        private static Image GetImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return (Image.FromStream(ms));
+            }
+        }
     }
 }

@@ -39,7 +39,6 @@
             this.companiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.specialOffersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.flightsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +52,6 @@
             this.btnCustomers = new System.Windows.Forms.Button();
             this.btnFlights = new System.Windows.Forms.Button();
             this.btnOffers = new System.Windows.Forms.Button();
-            this.reportToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -92,21 +90,21 @@
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // newCustomerToolStripMenuItem
             // 
             this.newCustomerToolStripMenuItem.Name = "newCustomerToolStripMenuItem";
-            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.newCustomerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newCustomerToolStripMenuItem.Text = "Add new..";
             this.newCustomerToolStripMenuItem.Click += new System.EventHandler(this.newCustomerToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.reportToolStripMenuItem.Text = "Report";
             this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
             // 
@@ -114,8 +112,7 @@
             // 
             this.companiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchToolStripMenuItem1,
-            this.addNewToolStripMenuItem,
-            this.reportToolStripMenuItem1});
+            this.addNewToolStripMenuItem});
             this.companiesToolStripMenuItem.Name = "companiesToolStripMenuItem";
             this.companiesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.companiesToolStripMenuItem.Text = "Companies";
@@ -134,13 +131,6 @@
             this.addNewToolStripMenuItem.Text = "Add new..";
             this.addNewToolStripMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
-            // reportToolStripMenuItem1
-            // 
-            this.reportToolStripMenuItem1.Name = "reportToolStripMenuItem1";
-            this.reportToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
-            this.reportToolStripMenuItem1.Text = "Report";
-            this.reportToolStripMenuItem1.Click += new System.EventHandler(this.reportToolStripMenuItem1_Click);
-            // 
             // specialOffersToolStripMenuItem
             // 
             this.specialOffersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -152,7 +142,7 @@
             // addNewToolStripMenuItem2
             // 
             this.addNewToolStripMenuItem2.Name = "addNewToolStripMenuItem2";
-            this.addNewToolStripMenuItem2.Size = new System.Drawing.Size(157, 26);
+            this.addNewToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.addNewToolStripMenuItem2.Text = "Add new..";
             this.addNewToolStripMenuItem2.Click += new System.EventHandler(this.addNewToolStripMenuItem2_Click);
             // 
@@ -160,8 +150,7 @@
             // 
             this.flightsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchToolStripMenuItem2,
-            this.addNewToolStripMenuItem1,
-            this.reportToolStripMenuItem2});
+            this.addNewToolStripMenuItem1});
             this.flightsToolStripMenuItem.Name = "flightsToolStripMenuItem";
             this.flightsToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.flightsToolStripMenuItem.Text = "Flights";
@@ -250,13 +239,6 @@
             this.btnOffers.UseVisualStyleBackColor = true;
             this.btnOffers.Click += new System.EventHandler(this.btnOffers_Click);
             // 
-            // reportToolStripMenuItem2
-            // 
-            this.reportToolStripMenuItem2.Name = "reportToolStripMenuItem2";
-            this.reportToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
-            this.reportToolStripMenuItem2.Text = "Report";
-            this.reportToolStripMenuItem2.Click += new System.EventHandler(this.reportToolStripMenuItem2_Click);
-            // 
             // frmIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,8 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem2;
     }
 }
 

@@ -22,8 +22,7 @@ namespace VisiTour.Mobile.Views
         }
         protected async override void OnAppearing()
         {
-            //await model.InitCities();
-            //await model.InitCompanies();
+
             await model.InitOffers();
 
         }

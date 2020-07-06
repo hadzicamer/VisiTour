@@ -22,6 +22,13 @@ namespace VisiTour.WinUI.Companies
             _CompanyId = CompanyId;
         }
 
+        private static Image GetImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                return (Image.FromStream(ms));
+            }
+        }
         private async void frmDetailsCompanies_Load(object sender, EventArgs e)
         {
             if (_CompanyId.HasValue)
@@ -31,12 +38,13 @@ namespace VisiTour.WinUI.Companies
                 txtName.Text = company.Name;
                 txthq.Text = company.Headquarter;
                 txtfoundingyear.Text = company.FoundingYear;
+                pictureBox1.Image = GetImage(company.photo);
             }
         }
 
-     
         private async void btnSave_Click_1(object sender, EventArgs e)
         {
+           
             var req = new CompaniesUpsertRequest()
             {
                 Name = txtName.Text,

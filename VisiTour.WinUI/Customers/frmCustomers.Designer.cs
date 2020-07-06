@@ -40,6 +40,7 @@
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnShow = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
@@ -137,7 +138,7 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(686, 36);
+            this.btnShow.Location = new System.Drawing.Point(686, 56);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(123, 29);
             this.btnShow.TabIndex = 1;
@@ -147,16 +148,26 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(21, 43);
+            this.txtSearch.Location = new System.Drawing.Point(21, 63);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(495, 22);
+            this.txtSearch.Size = new System.Drawing.Size(377, 22);
             this.txtSearch.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Name";
             // 
             // frmCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 482);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.groupBox1);
@@ -180,5 +191,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
+        private System.Windows.Forms.Label label1;
     }
 }

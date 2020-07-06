@@ -26,6 +26,17 @@ namespace VisiTour.WebAPI.Services
             _mapper = mapper;
         }
 
+        public List<Model.Cities> Get()
+        {
+            var list = _context.Set<Database.Cities>().ToList();
+            return _mapper.Map<List<Model.Cities>>(list);
+        }
+
+        public Model.Cities GetById(int id)
+        {
+            var e = _context.Set<Database.Cities>().Find(id);
+            return _mapper.Map<Model.Cities>(e);
+        }
 
         List<Model.Cities> ICitiesService.Recommend(int id)
         {
@@ -42,13 +53,13 @@ namespace VisiTour.WebAPI.Services
                 {
                     if (x.SpecialOffers.Count > 1)
                     {
-                        var distinctItem = x.SpecialOffers.Select(x => x.CityFromId).ToList();
+                        var distinctItem = x.SpecialOffers.Select(x => x.CityToId).ToList();
                         distinctItem.ForEach(y =>
                         {
-                            var related = x.SpecialOffers.Where(z => z.CityFromId != y).ToList();
+                            var related = x.SpecialOffers.Where(z => z.CityToId != y).ToList();
                             related.ForEach(z =>
                             {
-                                data.Add(new ProductEntry() { ProductID = (uint)y, CoPurchaseProductID = (uint)z.CityFromId });
+                                data.Add(new ProductEntry() { ProductID = (uint)y, CoPurchaseProductID = (uint)z.CityToId });
                             });
                         });
                     }
@@ -83,6 +94,7 @@ namespace VisiTour.WebAPI.Services
             var finalRes = predictionRes.OrderByDescending(x => x.Item2).Select(x => x.Item1).Take(2).ToList();
             return _mapper.Map<List<Model.Cities>>(finalRes);
         }
+
     }
 }
 

@@ -10,6 +10,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
+             <Label Text="Founded flights:" HorizontalOptions="Center" FontSize="18"></Label>
             <ListView ItemsSource="{Binding FlightsList}" x:Name="listFlight">
                 <ListView.ItemTemplate>
                     <DataTemplate>

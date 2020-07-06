@@ -161,10 +161,5 @@ namespace VisiTour.WinUI
             frm.Show();
         }
 
-        private void reportToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Flights.frmReport frm = new Flights.frmReport();
-            frm.Show();
-        }
     }
 }

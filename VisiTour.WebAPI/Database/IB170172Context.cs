@@ -96,8 +96,6 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
 
-                entity.Property(e => e.FlightClassId).HasColumnName("FlightClassID");
-
                 entity.Property(e => e.FoundingYear).HasMaxLength(50);
 
                 entity.Property(e => e.Headquarter).HasMaxLength(50);
@@ -107,11 +105,6 @@ namespace VisiTour.WebAPI.Database
                 entity.Property(e => e.Photo)
                     .HasColumnName("photo")
                     .HasColumnType("image");
-
-                entity.HasOne(d => d.FlightClass)
-                    .WithMany(p => p.Companies)
-                    .HasForeignKey(d => d.FlightClassId)
-                    .HasConstraintName("FK_FlightClassC");
             });
 
             modelBuilder.Entity<Countries>(entity =>
@@ -155,9 +148,9 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
-                entity.Property(e => e.PasswordHash).HasMaxLength(50);
+                entity.Property(e => e.PasswordHash).HasMaxLength(1000);
 
-                entity.Property(e => e.PasswordSalt).HasMaxLength(50);
+                entity.Property(e => e.PasswordSalt).HasMaxLength(1000);
 
                 entity.Property(e => e.Username).HasMaxLength(50);
 

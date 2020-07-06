@@ -17,39 +17,66 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" Orientation="Horizontal">
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding CityFrom.Name}" x:Name="lblCityF" 
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label Text="City from:"></Label>
+                                            <Label Text="{Binding CityFrom.Name}" x:Name="lblCityF" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label x:Name="lblDateF" Text="{Binding DateFrom,StringFormat='{0:dd-MMM-yy}'}" 
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="Date from:"></Label>
+                                            <Label x:Name="lblDateF" Text="{Binding DateFrom,StringFormat='{0:dd-MMM-yy}'}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label x:Name="lblCityT" Text="{Binding CityTo.Name}" 
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="City to:"></Label>
+                                            <Label x:Name="lblCityT" Text="{Binding CityTo.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label x:Name="lblDateT" Text="{Binding DateTo,StringFormat='{0:dd-MMM-yy}'}" 
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="Date to:"></Label>
+                                            <Label x:Name="lblDateT" Text="{Binding DateTo,StringFormat='{0:dd-MMM-yy}'}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding Company.Name}" 
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="Company:"></Label>
+                                            <Label Text="{Binding Company.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding FlightClass.Name}" 
+                                        </StackLayout>
+                                        <StackLayout>
+                                                <Label Text="Flight class:"></Label>
+                                            <Label Text="{Binding FlightClass.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Label Text="Price:"></Label>
+                                            <Label Text="{Binding Price}"
+                                               d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                      HorizontalOptions="Center"/>
+                                        </StackLayout>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

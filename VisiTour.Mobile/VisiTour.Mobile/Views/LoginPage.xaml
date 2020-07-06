@@ -9,11 +9,14 @@
         <vm:LoginViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand">
-            <Image Source="logo(1).png" WidthRequest="300"></Image>
-            <Entry Placeholder="Username" Text="{Binding Username}"></Entry>
-            <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"></Entry>
-            <Button Command="{Binding LoginCommand}" Text="Login" BackgroundColor="Green"></Button>
-        </StackLayout>
+        <Grid>
+            <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Image Source="logo(1).png" WidthRequest="300"></Image>
+                <Entry Placeholder="Username" Text="{Binding Username}"></Entry>
+                <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password}"></Entry>
+                <Button Command="{Binding LoginCommand}" Text="Login" BackgroundColor="Green"></Button>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

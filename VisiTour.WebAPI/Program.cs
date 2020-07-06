@@ -16,11 +16,11 @@ namespace VisiTour.WebAPI
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            //using (var scope = host.Services.CreateScope())
-            //{
-            //    var context = scope.ServiceProvider.GetRequiredService<IB170172Context>();
-            //    SetupService.Init(context);
-            //}
+            using (var scope = host.Services.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<IB170172Context>();
+                SetupService.Init(context);
+            }
             host.Run();
         }
 

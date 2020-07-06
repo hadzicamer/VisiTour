@@ -99,7 +99,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(637, 342);
+            this.btnSave.Location = new System.Drawing.Point(46, 420);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 44);
             this.btnSave.TabIndex = 8;
@@ -154,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 418);
+            this.ClientSize = new System.Drawing.Size(1369, 703);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAddImage);
             this.Controls.Add(this.txtphoto);

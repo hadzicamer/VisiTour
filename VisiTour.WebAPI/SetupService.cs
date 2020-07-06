@@ -10,7 +10,7 @@ namespace VisiTour.WebAPI
     {
         public static void Init(IB170172Context context)
         {
-            //context.Database.EnsureCreated();
+            context.Database.EnsureCreated();
         }
     }
 }
