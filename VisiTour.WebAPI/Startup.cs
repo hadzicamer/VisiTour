@@ -76,13 +76,14 @@ namespace VisiTour.WebAPI
             services.AddScoped<ICRUDService<Model.Payments, PaymentsSearchRequest, PaymentsUpsertRequest, PaymentsUpsertRequest>, PaymentsService>();
             services.AddScoped<ICRUDService<Model.Flights, FlightsSearchRequest, FlightsUpsertRequest, FlightsUpsertRequest>, FlightsService>();
             services.AddScoped<ICRUDService<Model.SpecialOffers, SpecialOffersSearchRequest, SpecialOffersUpsertRequest, SpecialOffersUpsertRequest>, SpecialOffersService>();
-            services.AddScoped<IService<Model.Cities, object>, BaseService<Model.Cities, object, Database.Cities>>();
+            //services.AddScoped<IService<Model.Cities, object>, BaseService<Model.Cities, object, Database.Cities>>();
             services.AddScoped<IService<Model.Countries, object>, BaseService<Model.Countries, object, Database.Countries>>();
             services.AddScoped<IService<Model.FlightStatus, object>, BaseService<Model.FlightStatus, object, Database.FlightStatus>>();
             services.AddScoped<IService<Model.FlightSeats, object>, BaseService<Model.FlightSeats, object, Database.FlightSeats>>();
             services.AddScoped<IService<Model.CreditCards, object>, BaseService<Model.CreditCards, object, Database.CreditCards>>();
             services.AddScoped<IService<Model.FlightClasses, object>, BaseService<Model.FlightClasses, object, Database.FlightClasses>>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ICitiesService, CitiesService>();
             services.AddScoped<IBookingsService, BookingsService>();
             services.AddControllersWithViews(options =>
             {

@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  visitour-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - visitourknet
+
+  visitour-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:visitourDB=Server=visitour-sql,1433;Database=170172;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      - 62999:80
+    networks:
+      - visitourknet      
+    links:
+      - visitour-sql
+    depends_on:
+      - visitour-sql
+
+networks:
+  visitourknet:
+    driver: bridge       

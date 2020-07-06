@@ -18,5 +18,7 @@ namespace VisiTour.WebAPI.ML
 
         [KeyType(count: 2000)]
         public uint CoPurchaseProductID { get; set; }
+        public float Label { get; set; }
+
     }
 }
