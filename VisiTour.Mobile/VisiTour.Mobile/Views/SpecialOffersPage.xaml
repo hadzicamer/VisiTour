@@ -12,7 +12,8 @@
         <Grid>
             <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
             <StackLayout>
-    <ListView ItemsSource="{Binding SpecialOffersList}" x:Name="listOffers">
+                <Label Text="Founded offers:" HorizontalOptions="Center" FontSize="18"></Label>
+                <ListView ItemsSource="{Binding SpecialOffersList}" x:Name="listOffers">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
