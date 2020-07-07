@@ -28,7 +28,6 @@ namespace VisiTour.WinUI.Flights
                 selectedClass = txtClass.Text
             };
             var res = await _apiService.Get<List<Model.Flights>>(srch);
-            //dataGridView1.AutoGenerateColumns = false;
             List<FlightsSearch> vm = new List<FlightsSearch>();
             foreach (var item in res)
             {
@@ -43,13 +42,6 @@ namespace VisiTour.WinUI.Flights
                 vm.Add(fs);
             }
             dataGridView1.DataSource = vm;
-        }
-
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            var id = dataGridView1.SelectedRows[0].Cells[0].Value;
-            frmFlightsDetails frm = new frmFlightsDetails(int.Parse(id.ToString()));
-            frm.Show();
         }
     }
 }
