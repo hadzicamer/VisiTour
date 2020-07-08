@@ -11,7 +11,6 @@ namespace VisiTour.Mobile.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
         }
 
         public ICommand OpenWebCommand { get; }

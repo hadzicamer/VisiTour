@@ -9,50 +9,53 @@
         <viewModel:FindFlightsViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-             <Label Text="Founded flights:" HorizontalOptions="Center" FontSize="18"></Label>
-            <ListView ItemsSource="{Binding FlightsList}" x:Name="listFlight">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding CityFrom.Name}" 
+        <Grid>
+            <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
+            <StackLayout>
+                <Label Text="Founded flights:" HorizontalOptions="Center" FontSize="18"></Label>
+                <ListView ItemsSource="{Binding FlightsList}" x:Name="listFlight">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding CityFrom.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding DateFrom, StringFormat='{0:dd-MMM-yy}'}" 
+                                        <Label Text="{Binding DateFrom, StringFormat='{0:dd-MMM-yy}'}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding CityTo.Name}" 
+                                        <Label Text="{Binding CityTo.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding DateTo, StringFormat='{0:dd-MMM-yy}'}" 
+                                        <Label Text="{Binding DateTo, StringFormat='{0:dd-MMM-yy}'}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding Price}" 
+                                        <Label Text="{Binding Price}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
-                                    <Label Text="{Binding FlightClass.Name}" 
+                                        <Label Text="{Binding FlightClass.Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

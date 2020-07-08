@@ -35,7 +35,6 @@ namespace VisiTour.WebAPI.Controllers
             return _service.GetById(id);
         }
 
-        [AllowAnonymous]
         [HttpGet("{id}/Recommend")]
         public List<Cities> Recommend(int id)
         {

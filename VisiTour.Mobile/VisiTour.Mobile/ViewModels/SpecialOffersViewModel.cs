@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +13,7 @@ namespace VisiTour.Mobile.ViewModels
     public class SpecialOffersViewModel : BaseViewModel
     {
         private readonly APIService _offersService = new APIService("SpecialOffers");
+
 
         public SpecialOffersViewModel(){
 
@@ -34,7 +36,9 @@ namespace VisiTour.Mobile.ViewModels
         }
 
 
+
         public ICommand OfferCommand { get; set; }
+
 
         public async Task InitOffers()
         {
@@ -48,6 +52,7 @@ namespace VisiTour.Mobile.ViewModels
                     SpecialOffersList.Add(offers);
                 }
             }
+
         }
 
     }

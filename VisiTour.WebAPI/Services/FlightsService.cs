@@ -22,6 +22,7 @@ namespace VisiTour.WebAPI.Services
         static ITransformer model = null;
         public FlightsService(IB170172Context context, IMapper mapper) : base(context, mapper)
         {
+
         }
 
         public override List<Model.Flights> Get([FromQuery]FlightsSearchRequest request)

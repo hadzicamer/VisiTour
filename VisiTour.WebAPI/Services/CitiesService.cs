@@ -38,13 +38,11 @@ namespace VisiTour.WebAPI.Services
             return _mapper.Map<Model.Cities>(e);
         }
 
-        List<Model.Cities> ICitiesService.Recommend(int id)
+        public List<Model.Cities> Recommend(int id)
         {
             if (mLContext == null)
             {
-
                 mLContext = new MLContext();
-
 
                 var tmpData = _context.Companies.Include("SpecialOffers").ToList();
 

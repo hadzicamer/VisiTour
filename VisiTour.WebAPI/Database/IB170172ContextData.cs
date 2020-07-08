@@ -190,7 +190,7 @@ namespace VisiTour.WebAPI.Database
                 CityFromId = 1,
                 DateFrom = new DateTime(2018, 1, 1),
                 CityToId = 3,
-                DateTo = new DateTime(2000, 1, 20),
+                DateTo = new DateTime(2018, 1, 20),
                 Price = 200,
                 FlightClassId = 2,
                 //FlightSeatId = 11,
@@ -381,10 +381,11 @@ namespace VisiTour.WebAPI.Database
             {
                 OfferId = 1,
                 CityFromId = 4,
-                DateFrom = new DateTime(2020, 7, 14),
+                DateFrom = new DateTime(2020, 6, 14),
                 CityToId = 2,
-                DateTo = new DateTime(2020, 7, 14),
+                DateTo = new DateTime(2020, 6, 20),
                 Price = 500,
+                CompanyId=4,
                 FlightClassId = 1,
               
             };
@@ -396,8 +397,9 @@ namespace VisiTour.WebAPI.Database
                 CityFromId = 3,
                 DateFrom = new DateTime(2020, 7, 14),
                 CityToId = 5,
-                DateTo = new DateTime(2020, 7, 14),
+                DateTo = new DateTime(2020, 7, 20),
                 Price = 400,
+                CompanyId = 3,
                 FlightClassId = 2,
              
             };
@@ -407,10 +409,11 @@ namespace VisiTour.WebAPI.Database
             {
                 OfferId = 3,
                 CityFromId = 2,
-                DateFrom = new DateTime(2020, 7, 14),
+                DateFrom = new DateTime(2020, 8, 20),
                 CityToId = 4,
-                DateTo = new DateTime(2020, 7, 14),
+                DateTo = new DateTime(2020, 9, 1),
                 Price = 100,
+                CompanyId = 2,
                 FlightClassId = 1,
            
             };
