@@ -13,7 +13,7 @@
             <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
             <StackLayout>
                 <Label Text="Founded offers:" HorizontalOptions="Center" FontSize="18"></Label>
-                <ListView ItemsSource="{Binding SpecialOffersList}">
+                <ListView ItemsSource="{Binding SpecialOffersList}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -75,7 +75,7 @@
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" 
                                       HorizontalOptions="Center"/>
-                <!--<Button Text="test" Clicked="Button_Clicked"></Button>-->
+            
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>

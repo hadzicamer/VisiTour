@@ -13,7 +13,7 @@ namespace VisiTour.WebAPI.Database
         public int FlightId { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
-        public decimal? Price { get; set; }
+        public int? Price { get; set; }
         public int? FlightClassId { get; set; }
         public int? CompanyId { get; set; }
         public int? FlightSeatId { get; set; }

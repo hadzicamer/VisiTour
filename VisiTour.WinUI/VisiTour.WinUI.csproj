@@ -135,12 +135,6 @@
     <Compile Include="Companies\frmDetailsCompanies.Designer.cs">
       <DependentUpon>frmDetailsCompanies.cs</DependentUpon>
     </Compile>
-    <Compile Include="Companies\frmReportCompany.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Companies\frmReportCompany.Designer.cs">
-      <DependentUpon>frmReportCompany.cs</DependentUpon>
-    </Compile>
     <Compile Include="Companies\Countries.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -225,10 +219,6 @@
     <EmbeddedResource Include="Companies\frmDetailsCompanies.resx">
       <DependentUpon>frmDetailsCompanies.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Companies\frmReportCompany.resx">
-      <DependentUpon>frmReportCompany.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Companies\Companies.rdlc" />
     <EmbeddedResource Include="Customers\Customers.rdlc" />
     <EmbeddedResource Include="Customers\frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
@@ -239,7 +229,6 @@
     <EmbeddedResource Include="Customers\frmReportCustomer.resx">
       <DependentUpon>frmReportCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Flights\Flights.rdlc" />
     <EmbeddedResource Include="Flights\frmFlights.resx">
       <DependentUpon>frmFlights.cs</DependentUpon>
     </EmbeddedResource>

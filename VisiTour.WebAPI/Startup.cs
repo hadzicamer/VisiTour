@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using VisiTour.Model;
 using VisiTour.Model.Requests;
@@ -38,6 +39,10 @@ namespace VisiTour.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddMvc(x => x.EnableEndpointRouting = false)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -85,6 +90,8 @@ namespace VisiTour.WebAPI
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<ICitiesService, CitiesService>();
             services.AddScoped<IBookingsService, BookingsService>();
+            services.AddScoped<IRecommendService, RecommendService>();
+
             services.AddControllersWithViews(options =>
             {
                 options.Filters.Add(typeof(ErrorFilter));

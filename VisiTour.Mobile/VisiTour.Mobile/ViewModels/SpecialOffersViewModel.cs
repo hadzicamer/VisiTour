@@ -34,9 +34,6 @@ namespace VisiTour.Mobile.ViewModels
                 OnPropertyChanged();
             }
         }
-
-
-
         public ICommand OfferCommand { get; set; }
 
 

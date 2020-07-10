@@ -32,6 +32,7 @@ namespace VisiTour.WebAPI.Mappers
             CreateMap<Database.FlightStatus, Model.FlightStatus>();
             CreateMap<Database.FlightClasses, Model.FlightClasses>();
             CreateMap<Database.CreditCards, Model.CreditCards>();
+            CreateMap<RecommendSearchRequest, Model.Cities>();
         }
     }
 }

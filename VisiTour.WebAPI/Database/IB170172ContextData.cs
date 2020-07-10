@@ -385,7 +385,7 @@ namespace VisiTour.WebAPI.Database
                 CityToId = 2,
                 DateTo = new DateTime(2020, 6, 20),
                 Price = 500,
-                CompanyId=4,
+                CompanyId=2,
                 FlightClassId = 1,
               
             };

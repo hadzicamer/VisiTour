@@ -35,11 +35,7 @@ namespace VisiTour.WebAPI.Controllers
             return _service.GetById(id);
         }
 
-        [HttpGet("{id}/Recommend")]
-        public List<Cities> Recommend(int id)
-        {
-            return _service.Recommend(id);
-        }
+      
 
     }
 

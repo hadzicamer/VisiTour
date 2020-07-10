@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VisiTour.Mobile.ViewModels;
+using VisiTour.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.Xaml;
@@ -25,10 +26,10 @@ namespace VisiTour.Mobile.Views
             await model.InitOffers();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            //await model.InitCities();
-
+            var item = e.Item as SpecialOffers;
+            await Navigation.PushAsync(new RecommendedCityToPage(item));
         }
     }
 }
