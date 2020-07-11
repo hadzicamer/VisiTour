@@ -110,5 +110,69 @@ namespace VisiTour.WinUI.Customers
 
 
         }
+
+        private void txtCountry_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtCountry.Text))
+            {
+                errorProvider.SetError(txtCountry, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider.SetError(txtCountry, null);
+            }
+
+        }
+
+        private void txtUsername_TextChanged(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                errorProvider.SetError(txtUsername, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider.SetError(txtUsername, null);
+            }
+
+        }
+
+        private void txtPass_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtPass.Text))
+            {
+                errorProvider.SetError(txtPass, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider.SetError(txtPass, null);
+            }
+
+        }
+
+        private void txtPassConfirm_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtPassConfirm.Text) ||txtPassConfirm!=txtPass)
+            {
+                errorProvider.SetError(txtPassConfirm, Properties.Resources.validation_required);
+                e.Cancel = true;
+
+            }
+            else
+            {
+                errorProvider.SetError(txtPassConfirm, null);
+            }
+
+        }
     }
 }

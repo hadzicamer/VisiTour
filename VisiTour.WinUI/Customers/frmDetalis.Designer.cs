@@ -71,6 +71,7 @@
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(310, 22);
             this.txtCountry.TabIndex = 4;
+            this.txtCountry.Validating += new System.ComponentModel.CancelEventHandler(this.txtCountry_Validating);
             // 
             // txtEmail
             // 
@@ -123,6 +124,7 @@
             this.txtPassConfirm.PasswordChar = '*';
             this.txtPassConfirm.Size = new System.Drawing.Size(175, 22);
             this.txtPassConfirm.TabIndex = 13;
+            this.txtPassConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassConfirm_Validating);
             // 
             // txtPass
             // 
@@ -131,6 +133,7 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(168, 22);
             this.txtPass.TabIndex = 14;
+            this.txtPass.Validating += new System.ComponentModel.CancelEventHandler(this.txtPass_Validating);
             // 
             // label3
             // 

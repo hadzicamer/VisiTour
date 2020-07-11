@@ -57,7 +57,7 @@
             // dtFrom
             // 
             this.dtFrom.AutoSize = true;
-            this.dtFrom.Location = new System.Drawing.Point(61, 24);
+            this.dtFrom.Location = new System.Drawing.Point(50, 107);
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(74, 17);
             this.dtFrom.TabIndex = 0;
@@ -65,14 +65,14 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(64, 55);
+            this.dateTimePicker1.Location = new System.Drawing.Point(53, 136);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(64, 141);
+            this.dateTimePicker2.Location = new System.Drawing.Point(53, 231);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker2.TabIndex = 2;
@@ -80,7 +80,7 @@
             // dtTo
             // 
             this.dtTo.AutoSize = true;
-            this.dtTo.Location = new System.Drawing.Point(61, 110);
+            this.dtTo.Location = new System.Drawing.Point(49, 193);
             this.dtTo.Name = "dtTo";
             this.dtTo.Size = new System.Drawing.Size(58, 17);
             this.dtTo.TabIndex = 3;
@@ -89,7 +89,7 @@
             // cbFrom
             // 
             this.cbFrom.FormattingEnabled = true;
-            this.cbFrom.Location = new System.Drawing.Point(64, 229);
+            this.cbFrom.Location = new System.Drawing.Point(52, 59);
             this.cbFrom.Name = "cbFrom";
             this.cbFrom.Size = new System.Drawing.Size(160, 24);
             this.cbFrom.TabIndex = 4;
@@ -107,7 +107,7 @@
             // lblFrom
             // 
             this.lblFrom.AutoSize = true;
-            this.lblFrom.Location = new System.Drawing.Point(61, 193);
+            this.lblFrom.Location = new System.Drawing.Point(50, 29);
             this.lblFrom.Name = "lblFrom";
             this.lblFrom.Size = new System.Drawing.Size(67, 17);
             this.lblFrom.TabIndex = 6;
@@ -129,6 +129,7 @@
             this.cbClass.Name = "cbClass";
             this.cbClass.Size = new System.Drawing.Size(152, 24);
             this.cbClass.TabIndex = 8;
+            this.cbClass.Validating += new System.ComponentModel.CancelEventHandler(this.cbClass_Validating_1);
             // 
             // cbCompany
             // 
@@ -137,6 +138,7 @@
             this.cbCompany.Name = "cbCompany";
             this.cbCompany.Size = new System.Drawing.Size(160, 24);
             this.cbCompany.TabIndex = 9;
+            this.cbCompany.Validating += new System.ComponentModel.CancelEventHandler(this.cbCompany_Validating_1);
             // 
             // label4
             // 
@@ -220,6 +222,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(162, 22);
             this.txtPrice.TabIndex = 18;
+            this.txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrice_Validating);
             // 
             // errorProvider1
             // 

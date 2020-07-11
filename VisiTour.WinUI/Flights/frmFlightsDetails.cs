@@ -75,41 +75,95 @@ namespace VisiTour.WinUI.Flights
         FlightsUpsertRequest req = new FlightsUpsertRequest();
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var ClassidObj = cbClass.SelectedValue;
-            if (int.TryParse(ClassidObj.ToString(), out int classId))
+            if (this.ValidateChildren())
             {
-                req.FlightClassId = classId;
-            }
-            var CompanyidObj = cbCompany.SelectedValue;
-            if (int.TryParse(CompanyidObj.ToString(), out int companyId))
-            {
-                req.CompanyId = companyId;
-            }
-            var CityFromidObj = cbCityFrom.SelectedValue;
-            if (int.TryParse(CityFromidObj.ToString(), out int cityFromId))
-            {
-                req.CityFromId = cityFromId;
-            }
-            var CityToidObj = cbCityTo.SelectedValue;
-            if (int.TryParse(CityToidObj.ToString(), out int cityToId))
-            {
-                req.CityToId = cityToId;
-            }
+                var ClassidObj = cbClass.SelectedValue;
+                if (int.TryParse(ClassidObj.ToString(), out int classId))
+                {
+                    req.FlightClassId = classId;
+                }
+                var CompanyidObj = cbCompany.SelectedValue;
+                if (int.TryParse(CompanyidObj.ToString(), out int companyId))
+                {
+                    req.CompanyId = companyId;
+                }
+                var CityFromidObj = cbCityFrom.SelectedValue;
+                if (int.TryParse(CityFromidObj.ToString(), out int cityFromId))
+                {
+                    req.CityFromId = cityFromId;
+                }
+                var CityToidObj = cbCityTo.SelectedValue;
+                if (int.TryParse(CityToidObj.ToString(), out int cityToId))
+                {
+                    req.CityToId = cityToId;
+                }
 
-            req.DateFrom = DateTime.Parse(dateFrom.Text);
-            req.DateTo = DateTime.Parse(dateTo.Text);
+                req.DateFrom = DateTime.Parse(dateFrom.Text);
+                req.DateTo = DateTime.Parse(dateTo.Text);
 
-            if (_FlightID.HasValue)
+                if (_FlightID.HasValue)
+                {
+                    await _flightsService.Update<Model.Flights>(_FlightID, req);
+                    MessageBox.Show("Flight updated!");
+                }
+                else
+                {
+                    await _flightsService.Insert<Model.Flights>(req);
+                    MessageBox.Show("New flight added!");
+                }
+            }
+        }
+
+        private void cbCityFrom_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbCityFrom.SelectedIndex == 0 || cbCityFrom.SelectedIndex == -1)
             {
-                await _flightsService.Update<Model.Flights>(_FlightID, req);
-                MessageBox.Show("Flight updated!");
+                errorProvider1.SetError(cbCityFrom, Properties.Resources.validation_required);
+                e.Cancel = true;
             }
             else
             {
-                await _flightsService.Insert<Model.Flights>(req);
-                MessageBox.Show("New flight added!");
+                errorProvider1.SetError(cbCityFrom, null);
             }
+        }
 
+        private void cbCityTo_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbCityTo.SelectedIndex == 0 || cbCityTo.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(cbCityTo, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbCityTo, null);
+            }
+        }
+
+        private void cbClass_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbClass.SelectedIndex == 0 || cbClass.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(cbClass, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbClass, null);
+            }
+        }
+
+        private void cbCompany_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbCompany.SelectedIndex == 0 || cbCompany.SelectedIndex == -1)
+            {
+                errorProvider1.SetError(cbCompany, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbCompany, null);
+            }
         }
     }
     }

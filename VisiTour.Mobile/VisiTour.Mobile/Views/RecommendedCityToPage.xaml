@@ -6,28 +6,31 @@
              mc:Ignorable="d"
              x:Class="VisiTour.Mobile.Views.RecommendedCityToPage">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center">
-            <Label FontAttributes="Bold" Text="Recommended cities:" HorizontalOptions="Center" FontSize="18" ></Label>
-            <ListView ItemsSource="{Binding RecommendList}" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10" Orientation="Horizontal">
-                                <StackLayout Orientation="Vertical">
-                                    <StackLayout>
-                                        <Label Text="City to:"></Label>
-                                        <Label x:Name="lblCityT" Text="{Binding Name}" 
+        <Grid>
+            <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
+            <StackLayout VerticalOptions="Center">
+                <Label FontAttributes="Bold" Text="Recommended cities:" HorizontalOptions="Center" FontSize="18" ></Label>
+                <ListView ItemsSource="{Binding RecommendList}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout>
+                                            <Label Text="City to:"></Label>
+                                            <Label x:Name="lblCityT" Text="{Binding Name}" 
                                     d:Text="{Binding .}"
                                     LineBreakMode="NoWrap" 
                                     Style="{DynamicResource ListItemTextStyle}" 
                                     FontSize="16" />
+                                        </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

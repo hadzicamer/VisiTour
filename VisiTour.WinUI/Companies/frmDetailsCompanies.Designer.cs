@@ -88,6 +88,7 @@
             this.txtfoundingyear.Name = "txtfoundingyear";
             this.txtfoundingyear.Size = new System.Drawing.Size(372, 22);
             this.txtfoundingyear.TabIndex = 4;
+            this.txtfoundingyear.Validating += new System.ComponentModel.CancelEventHandler(this.txtfoundingyear_Validating);
             // 
             // txthq
             // 

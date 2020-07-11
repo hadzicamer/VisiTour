@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,6 +107,7 @@
             this.cbCityFrom.Name = "cbCityFrom";
             this.cbCityFrom.Size = new System.Drawing.Size(169, 24);
             this.cbCityFrom.TabIndex = 6;
+            this.cbCityFrom.Validating += new System.ComponentModel.CancelEventHandler(this.cbCityFrom_Validating);
             // 
             // cbCityTo
             // 
@@ -112,6 +116,7 @@
             this.cbCityTo.Name = "cbCityTo";
             this.cbCityTo.Size = new System.Drawing.Size(169, 24);
             this.cbCityTo.TabIndex = 7;
+            this.cbCityTo.Validating += new System.ComponentModel.CancelEventHandler(this.cbCityTo_Validating);
             // 
             // cbClass
             // 
@@ -120,6 +125,7 @@
             this.cbClass.Name = "cbClass";
             this.cbClass.Size = new System.Drawing.Size(169, 24);
             this.cbClass.TabIndex = 8;
+            this.cbClass.Validating += new System.ComponentModel.CancelEventHandler(this.cbClass_Validating);
             // 
             // cbCompany
             // 
@@ -128,6 +134,7 @@
             this.cbCompany.Name = "cbCompany";
             this.cbCompany.Size = new System.Drawing.Size(156, 24);
             this.cbCompany.TabIndex = 9;
+            this.cbCompany.Validating += new System.ComponentModel.CancelEventHandler(this.cbCompany_Validating);
             // 
             // dateFrom
             // 
@@ -153,6 +160,10 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmFlightsDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -174,6 +185,7 @@
             this.Name = "frmFlightsDetails";
             this.Text = "frmFlightsDetails";
             this.Load += new System.EventHandler(this.frmFlightsDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +206,6 @@
         private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

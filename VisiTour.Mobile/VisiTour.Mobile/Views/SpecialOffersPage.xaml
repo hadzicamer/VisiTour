@@ -13,6 +13,7 @@
             <Image Source="background.jpg" Aspect="AspectFill" Opacity="0.3" />
             <StackLayout>
                 <Label Text="Founded offers:" HorizontalOptions="Center" FontSize="18"></Label>
+                <Label Text="Select one of the offers and check recommended destinatons!" FontSize="14"></Label>
                 <ListView ItemsSource="{Binding SpecialOffersList}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>

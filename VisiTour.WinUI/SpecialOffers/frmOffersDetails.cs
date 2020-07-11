@@ -93,44 +93,46 @@ namespace VisiTour.WinUI.SpecialOffers
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            var ClassidObj = cbClass.SelectedValue;
-            if(int.TryParse(ClassidObj.ToString(),out int classId))
+            if (this.ValidateChildren())
             {
-                req.FlightClassId = classId;
-            }
-            var CompanyidObj = cbCompany.SelectedValue;
-            if (int.TryParse(CompanyidObj.ToString(), out int companyId))
-            {
-                req.CompanyId = companyId;
-            }
-            var CityFromidObj = cbFrom.SelectedValue;
-            if (int.TryParse(CityFromidObj.ToString(), out int cityFromId))
-            {
-                req.CityFromId = cityFromId;
-            }
-            var CityToidObj = cbTo.SelectedValue;
-            if (int.TryParse(CityToidObj.ToString(), out int cityToId))
-            {
-                req.CityToId = cityToId;
-            }
+                var ClassidObj = cbClass.SelectedValue;
+                if (int.TryParse(ClassidObj.ToString(), out int classId))
+                {
+                    req.FlightClassId = classId;
+                }
+                var CompanyidObj = cbCompany.SelectedValue;
+                if (int.TryParse(CompanyidObj.ToString(), out int companyId))
+                {
+                    req.CompanyId = companyId;
+                }
+                var CityFromidObj = cbFrom.SelectedValue;
+                if (int.TryParse(CityFromidObj.ToString(), out int cityFromId))
+                {
+                    req.CityFromId = cityFromId;
+                }
+                var CityToidObj = cbTo.SelectedValue;
+                if (int.TryParse(CityToidObj.ToString(), out int cityToId))
+                {
+                    req.CityToId = cityToId;
+                }
 
-            req.DateFrom = DateTime.Parse(dateTimePicker1.Text);
-            req.DateTo = DateTime.Parse(dateTimePicker2.Text);
-            req.Price = decimal.Parse(txtPrice.Text);
+                req.DateFrom = DateTime.Parse(dateTimePicker1.Text);
+                req.DateTo = DateTime.Parse(dateTimePicker2.Text);
+                req.Price = decimal.Parse(txtPrice.Text);
 
-            if (_OfferID.HasValue)
-            {
-                await _offersService.Update<Model.SpecialOffers>(_OfferID, req);
-                MessageBox.Show("Offer updated!");
-            }
-            else
-            {
-                await _offersService.Insert<Model.SpecialOffers>(req);
-                MessageBox.Show("New offer added!");
-            }
+                if (_OfferID.HasValue)
+                {
+                    await _offersService.Update<Model.SpecialOffers>(_OfferID, req);
+                    MessageBox.Show("Offer updated!");
+                }
+                else
+                {
+                    await _offersService.Insert<Model.SpecialOffers>(req);
+                    MessageBox.Show("New offer added!");
+                }
 
+            }
         }
-
         private static Image GetImage(byte[] data)
         {
             using (MemoryStream ms = new MemoryStream(data))
@@ -139,22 +141,11 @@ namespace VisiTour.WinUI.SpecialOffers
             }
         }
 
-        private void txtPrice_TextChanged(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtPrice.Text))
-            {
-                errorProvider1.SetError(txtPrice, Properties.Resources.validation_required);
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtPrice, null);
-            }
-        }
+      
 
         private void cbFrom_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbFrom.Text))
+            if (cbFrom.SelectedIndex==-1)
             {
                 errorProvider1.SetError(cbFrom, Properties.Resources.validation_required);
                 e.Cancel = true;
@@ -167,7 +158,7 @@ namespace VisiTour.WinUI.SpecialOffers
 
         private void cbTo_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbTo.Text))
+            if (cbTo.SelectedIndex == -1)
             {
                 errorProvider1.SetError(cbTo, Properties.Resources.validation_required);
                 e.Cancel = true;
@@ -178,9 +169,24 @@ namespace VisiTour.WinUI.SpecialOffers
             }
         }
 
-        private void cbCompany_Validating(object sender, CancelEventArgs e)
+
+
+        private void txtPrice_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbCompany.Text))
+            if (string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                errorProvider1.SetError(txtPrice, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPrice, null);
+            }
+        }
+
+        private void cbCompany_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (cbCompany.SelectedIndex == -1)
             {
                 errorProvider1.SetError(cbCompany, Properties.Resources.validation_required);
                 e.Cancel = true;
@@ -191,9 +197,9 @@ namespace VisiTour.WinUI.SpecialOffers
             }
         }
 
-        private void cbClass_Validating(object sender, CancelEventArgs e)
+        private void cbClass_Validating_1(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(cbClass.Text))
+            if (cbClass.SelectedIndex == -1 || cbClass.SelectedIndex==0)
             {
                 errorProvider1.SetError(cbClass, Properties.Resources.validation_required);
                 e.Cancel = true;
@@ -203,5 +209,7 @@ namespace VisiTour.WinUI.SpecialOffers
                 errorProvider1.SetError(cbClass, null);
             }
         }
+
+      
     }
     }
