@@ -138,5 +138,70 @@ namespace VisiTour.WinUI.SpecialOffers
                 return (Image.FromStream(ms));
             }
         }
+
+        private void txtPrice_TextChanged(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                errorProvider1.SetError(txtPrice, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPrice, null);
+            }
+        }
+
+        private void cbFrom_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbFrom.Text))
+            {
+                errorProvider1.SetError(cbFrom, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbFrom, null);
+            }
+        }
+
+        private void cbTo_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbTo.Text))
+            {
+                errorProvider1.SetError(cbTo, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbTo, null);
+            }
+        }
+
+        private void cbCompany_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbCompany.Text))
+            {
+                errorProvider1.SetError(cbCompany, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbCompany, null);
+            }
+        }
+
+        private void cbClass_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbClass.Text))
+            {
+                errorProvider1.SetError(cbClass, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(cbClass, null);
+            }
+        }
     }
-}
+    }

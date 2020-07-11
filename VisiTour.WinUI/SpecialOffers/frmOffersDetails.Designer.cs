@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtFrom = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -48,7 +49,9 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtFrom
@@ -90,6 +93,7 @@
             this.cbFrom.Name = "cbFrom";
             this.cbFrom.Size = new System.Drawing.Size(160, 24);
             this.cbFrom.TabIndex = 4;
+            this.cbFrom.Validating += new System.ComponentModel.CancelEventHandler(this.cbFrom_Validating);
             // 
             // pictureBox1
             // 
@@ -116,6 +120,7 @@
             this.cbTo.Name = "cbTo";
             this.cbTo.Size = new System.Drawing.Size(152, 24);
             this.cbTo.TabIndex = 7;
+            this.cbTo.Validating += new System.ComponentModel.CancelEventHandler(this.cbTo_Validating);
             // 
             // cbClass
             // 
@@ -216,6 +221,10 @@
             this.txtPrice.Size = new System.Drawing.Size(162, 22);
             this.txtPrice.TabIndex = 18;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmOffersDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,6 +253,7 @@
             this.Text = "frmOffersDetails";
             this.Load += new System.EventHandler(this.frmOffersDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +281,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

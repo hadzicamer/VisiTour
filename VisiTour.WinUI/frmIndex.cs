@@ -155,11 +155,5 @@ namespace VisiTour.WinUI
             frm.Show();
         }
 
-        private void reportToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Companies.frmReport frm = new Companies.frmReport();
-            frm.Show();
-        }
-
     }
 }

@@ -109,5 +109,20 @@ namespace VisiTour.WinUI.Companies
             }
 
         }
+
+        private void txtfoundingyear_TextChanged(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtfoundingyear.Text))
+            {
+                errorProvider1.SetError(txtfoundingyear, Properties.Resources.validation_required);
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtfoundingyear, null);
+            }
+        }
+
+       
     }
 }
