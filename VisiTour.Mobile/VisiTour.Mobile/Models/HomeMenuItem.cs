@@ -11,7 +11,9 @@ namespace VisiTour.Mobile.Models
         FindFlights,
         Classes,
         Offers,
-        About
+        About,
+        Bookings,
+        Exam
     }
     public class HomeMenuItem
     {

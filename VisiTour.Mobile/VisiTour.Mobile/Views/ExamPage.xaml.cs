@@ -1,35 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VisiTour.Mobile.ViewModels;
+using VisiTour.Model;
+using VisiTour.Model.Requests;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace VisiTour.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FindFlightsPage : ContentPage
+    public partial class ExamPage : ContentPage
     {
-        FindFlightsViewModel model = null;
-        public FindFlightsPage()
+
+        ExamViewModel model = null;
+        public ExamPage()
         {
             InitializeComponent();
-            BindingContext = model = new FindFlightsViewModel();
-    
+            BindingContext = model = new ExamViewModel();
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await model.InitCities();
             await model.InitClasses();
         }
 
-        private async void Search_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SearchedFlightsPage(model));
-        }       
+            await model.getSearched();
+        }
     }
 }

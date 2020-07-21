@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:VisiTour.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.CheckPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Check out"></Label>
+            <StackLayout HorizontalOptions="Center">
+        <StackLayout>
+                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                    <Label
+        Text="Person:"
+        VerticalTextAlignment="Center"
+       Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                    <Label
+       x:Name="title"
+        VerticalTextAlignment="Center"
+        Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                    <Label
+       x:Name="firstName" 
+        VerticalTextAlignment="Center"
+         Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                    <Label
+       x:Name="lastName" 
+        VerticalTextAlignment="Center"
+       Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                </StackLayout>
+                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                    <Label
+        Text="Email: "
+        VerticalTextAlignment="Center"
+         Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                <Label
+       x:Name="email" 
+        VerticalTextAlignment="Center"
+       Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                </StackLayout>
+                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                    <Label
+        Text="Country: "
+        VerticalTextAlignment="Center"
+         Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                <Label
+       x:Name="country" 
+        VerticalTextAlignment="Center"
+         Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                </StackLayout>
+                <StackLayout Grid.Row="1" Orientation="Horizontal">
+                    <Label
+        Text="Date of birth: "
+        VerticalTextAlignment="Center"
+     Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                <Label
+       x:Name="date" 
+        VerticalTextAlignment="Center"
+        Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                </StackLayout>
+            </StackLayout>
+                <Button Text="Book a flight" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:VisiTour.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.BookingPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Title: "></Label>
+            <Picker x:Name="titles" ItemsSource="{Binding TitlesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedTitle}" ></Picker>
+            <Label Text="First name (as shown in ID): "></Label>
+            <Entry x:Name="name" ></Entry>
+            <Label Text="Last name (as shown in ID): "></Label>
+            <Entry x:Name="surname"></Entry>
+            <Label Text="Email adress: "></Label>
+            <Entry x:Name="email"></Entry>
+            <Label Text="Country: "></Label>
+            <Picker x:Name="countries" ItemsSource="{Binding CountriesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCountry}"></Picker>
+            <Label Text="Date of birth: "></Label>
+            <DatePicker x:Name="date" Date="{Binding DateOfBirth}"></DatePicker>
+            <Button Text="Continue" BackgroundColor="Orange" Clicked="Button_Clicked_1"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

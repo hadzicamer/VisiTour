@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using VisiTour.Mobile.Models;
+using VisiTour.Mobile.ViewModels;
+using VisiTour.Model;
 
 namespace VisiTour.Mobile.Views
 {
@@ -36,6 +38,9 @@ namespace VisiTour.Mobile.Views
                     case (int)MenuItemType.Profile:
                         MenuPages.Add(id, new NavigationPage(new ProfilePage()));
                         break;
+                    case (int)MenuItemType.Bookings:
+                        MenuPages.Add(id, new NavigationPage(new MyBookingPage()));
+                        break;
                     case (int)MenuItemType.Classes:
                         MenuPages.Add(id, new NavigationPage(new ClassesPage()));
                         break;
@@ -48,6 +53,10 @@ namespace VisiTour.Mobile.Views
                     case (int)MenuItemType.Offers:
                         MenuPages.Add(id, new NavigationPage(new SpecialOffersPage()));
                         break;
+                    case (int)MenuItemType.Exam:
+                        MenuPages.Add(id, new NavigationPage(new ExamPage()));
+                        break;
+
                 }
             }
 

@@ -19,8 +19,10 @@ namespace VisiTour.WebAPI.Database
         public string Email { get; set; }
         public int? RoleId { get; set; }
         public string Username { get; set; }
+        public int? TitleId { get; set; }
 
         public virtual Roles Role { get; set; }
+        public virtual Title Title { get; set; }
         public virtual ICollection<Bookings> Bookings { get; set; }
     }
 }

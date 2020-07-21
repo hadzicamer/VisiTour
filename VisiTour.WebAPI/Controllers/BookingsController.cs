@@ -35,5 +35,10 @@ namespace VisiTour.WebAPI.Controllers
             return _service.GetById(id);
         }
 
+        [HttpPost]
+        public Model.Bookings Insert(BookingInsertRequest request)
+        {
+            return _service.Insert(request);
+        }
     }
 }

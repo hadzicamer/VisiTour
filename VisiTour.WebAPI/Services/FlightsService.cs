@@ -18,8 +18,6 @@ namespace VisiTour.WebAPI.Services
 {
     public class FlightsService : BaseCRUDService<Model.Flights,FlightsSearchRequest,Database.Flights,FlightsUpsertRequest,FlightsUpsertRequest>
     {
-       static MLContext mLContext = null;
-        static ITransformer model = null;
         public FlightsService(IB170172Context context, IMapper mapper) : base(context, mapper)
         {
 
@@ -27,7 +25,7 @@ namespace VisiTour.WebAPI.Services
 
         public override List<Model.Flights> Get([FromQuery]FlightsSearchRequest request)
         {
-            var query = _context.Flights.Include(x=>x.FlightClass).Include(x=>x.CityFrom).Include(x=>x.CityTo).AsQueryable();
+            var query = _context.Flights.Include(x=>x.FlightClass).Include(x=>x.CityFrom).Include(x=>x.CityTo).Include(x=>x.Company).AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request?.selectedFlightFrom))
             {

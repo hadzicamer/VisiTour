@@ -38,8 +38,6 @@ namespace VisiTour.WebAPI.Services
                 var data = new List<ProductEntry>();
                 foreach (var x in tmpData)
                 {
-                    if (x.SpecialOffers.Count > 1)
-                    {
                         var distinctItem = x.SpecialOffers.Select(x => x.CityToId).ToList();
                         distinctItem.ForEach(y =>
                         {
@@ -50,7 +48,6 @@ namespace VisiTour.WebAPI.Services
                                     ProductEntry() { ProductID = (uint)y, CoPurchaseProductID = (uint)z.CityToId });
                             });
                         });
-                    }
                 }
 
                 var traindata = mLContext.Data.LoadFromEnumerable(data);

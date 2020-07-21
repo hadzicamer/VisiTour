@@ -27,11 +27,13 @@ namespace VisiTour.WebAPI.Mappers
             CreateMap<Database.FlightClasses, Model.FlightClasses>();
             CreateMap<Database.FlightSeats, Model.FlightSeats>();
             CreateMap<Database.Bookings, Model.Bookings>();
+            CreateMap<BookingInsertRequest, Database.Bookings>();
             CreateMap<Database.SpecialOffers, Model.SpecialOffers>();
             CreateMap<SpecialOffersUpsertRequest, Database.SpecialOffers>();
             CreateMap<Database.FlightStatus, Model.FlightStatus>();
             CreateMap<Database.FlightClasses, Model.FlightClasses>();
             CreateMap<Database.CreditCards, Model.CreditCards>();
+            CreateMap<Database.Title, Model.Title>();
             CreateMap<RecommendSearchRequest, Model.Cities>();
         }
     }

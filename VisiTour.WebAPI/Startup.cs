@@ -91,6 +91,8 @@ namespace VisiTour.WebAPI
             services.AddScoped<ICitiesService, CitiesService>();
             services.AddScoped<IBookingsService, BookingsService>();
             services.AddScoped<IRecommendService, RecommendService>();
+            services.AddScoped<IExamService, ExamService>();
+            services.AddScoped<ITitleService, TitleService>();
 
             services.AddControllersWithViews(options =>
             {

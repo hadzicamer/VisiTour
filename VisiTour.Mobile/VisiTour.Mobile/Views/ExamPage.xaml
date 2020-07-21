@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VisiTour.Mobile.Views.ExamPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Date from:" ></Label>
+            <DatePicker Date="{Binding DateFrom}"></DatePicker>
+            <Label Text="Date to:"></Label>
+            <DatePicker Date="{Binding DateTo}"></DatePicker>
+            <Label Text="Select class:"></Label>
+            <Picker x:Name="ClassesPicker" ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}"></Picker>
+            <Button Text="Search" Clicked="Button_Clicked" BackgroundColor="Blue"></Button>
+            <Label Text="Founded flights:" HorizontalOptions="Center" FontSize="18"></Label>
+            <ListView ItemsSource="{Binding FlightsList}" x:Name="listFlight">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding CityFrom.Name}" 
+                                    d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding DateFrom, StringFormat='{0:dd-MMM-yy}'}" 
+                                    d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding CityTo.Name}" 
+                                    d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding DateTo, StringFormat='{0:dd-MMM-yy}'}" 
+                                    d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding Price}" 
+                                    d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding FlightClass.Name}" 
+                                    d:Text="{Binding .}"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

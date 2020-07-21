@@ -28,6 +28,7 @@ namespace VisiTour.WebAPI.Database
         public virtual DbSet<Payments> Payments { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<SpecialOffers> SpecialOffers { get; set; }
+        public virtual DbSet<Title> Title { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -48,33 +49,17 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
-                entity.Property(e => e.Details).HasMaxLength(100);
-
                 entity.Property(e => e.FlightId).HasColumnName("FlightID");
-
-                entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
-
-                entity.Property(e => e.StatusId).HasColumnName("StatusID");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Bookings_Customer");
+                    .HasConstraintName("FK_LoginCust");
 
                 entity.HasOne(d => d.Flight)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.FlightId)
-                    .HasConstraintName("FK_FlightB");
-
-                entity.HasOne(d => d.Payment)
-                    .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.PaymentId)
-                    .HasConstraintName("FK_Payments");
-
-                entity.HasOne(d => d.Status)
-                    .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.StatusId)
-                    .HasConstraintName("FK_Booking_status");
+                    .HasConstraintName("FK_BookingF");
             });
 
             modelBuilder.Entity<Cities>(entity =>
@@ -152,12 +137,19 @@ namespace VisiTour.WebAPI.Database
 
                 entity.Property(e => e.PasswordSalt).HasMaxLength(1000);
 
+                entity.Property(e => e.TitleId).HasColumnName("TitleID");
+
                 entity.Property(e => e.Username).HasMaxLength(50);
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.RoleId)
                     .HasConstraintName("FK__Customers__RoleI__71D1E811");
+
+                entity.HasOne(d => d.Title)
+                    .WithMany(p => p.Customers)
+                    .HasForeignKey(d => d.TitleId)
+                    .HasConstraintName("FK_Title");
             });
 
             modelBuilder.Entity<FlightClasses>(entity =>
@@ -307,6 +299,13 @@ namespace VisiTour.WebAPI.Database
                     .WithMany(p => p.SpecialOffers)
                     .HasForeignKey(d => d.FlightClassId)
                     .HasConstraintName("FK_FlightClassS");
+            });
+
+            modelBuilder.Entity<Title>(entity =>
+            {
+                entity.Property(e => e.TitleId).HasColumnName("TitleID");
+
+                entity.Property(e => e.Name).HasMaxLength(5);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -16,8 +16,8 @@
             <Label Text="To: "></Label>
             <Picker ItemsSource="{Binding CitiesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedCityTo}"></Picker>
             <Label Text="Date To: "></Label>
-            <DatePicker Date="{Binding DateTo}"></DatePicker>
-            <Label Text="Class: "></Label>
+                <DatePicker Date="{Binding DateTo}"></DatePicker>
+                <Label Text="Class: "></Label>
             <Picker ItemsSource="{Binding ClassesList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedClass}"></Picker>
             <Button Text="Search" BackgroundColor="LightGreen" Clicked="Search_Clicked" ></Button>
         </StackLayout>

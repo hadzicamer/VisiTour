@@ -55,11 +55,11 @@ namespace VisiTour.WebAPI.Database
             c2.PasswordHash = HashSaltGen.GenerateHash(c2.PasswordSalt, "test");
             modelBuilder.Entity<Customers>().HasData(c2);
 
-            modelBuilder.Entity<Bookings>().HasData(new Bookings()
-            {
-                BookingId = 1,
-                Details = "Flight Sarajevo- London on Thursday 21. of May at 12:00"
-            });
+            //modelBuilder.Entity<Bookings>().HasData(new Bookings()
+            //{
+            //    BookingId = 1,
+            //    Details = "Flight Sarajevo- London on Thursday 21. of May at 12:00"
+            //});
 
             //Cities
 

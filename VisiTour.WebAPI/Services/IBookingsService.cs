@@ -11,5 +11,6 @@ namespace VisiTour.WebAPI.Services
         List<Model.Bookings> Get(BookingsSearchRequest request);
 
         Model.Bookings GetById(int id);
+        Model.Bookings Insert(BookingInsertRequest request);
     }
 }

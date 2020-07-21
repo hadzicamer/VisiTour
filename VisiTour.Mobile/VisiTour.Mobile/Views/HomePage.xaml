@@ -8,9 +8,6 @@
              Title="{Binding Title}"
              x:Name="BrowseItemsPage">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
-    </ContentPage.ToolbarItems>
 
         <ContentPage.Content>
         <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -29,19 +26,13 @@
                         </Grid.ColumnDefinitions>
                         <Button Text="Flight Classes" Clicked="class_Clicked" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
                     </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="600"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Text="Special offers" Clicked="offer_Clicked" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
-                    </Grid>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="600"/>
-                        </Grid.ColumnDefinitions>
-                        <Button Text="My Flight informations" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
-                    </Grid>-->
-                    <Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="600"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Special offers" Clicked="offer_Clicked" TextColor="White" BackgroundColor="OrangeRed" Margin="10"></Button>
+                </Grid>
+                <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="600"/>
                         </Grid.ColumnDefinitions>

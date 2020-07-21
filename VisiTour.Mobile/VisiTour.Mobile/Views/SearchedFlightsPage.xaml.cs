@@ -26,8 +26,13 @@ namespace VisiTour.Mobile.Views
 
         protected async override void OnAppearing()
         {
-            base.OnAppearing();
             await model.getSearched();
+        }
+
+        private async void listFlight_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = e.Item as Flights;
+            await Navigation.PushAsync(new BookingPage(item));
         }
     }
 }

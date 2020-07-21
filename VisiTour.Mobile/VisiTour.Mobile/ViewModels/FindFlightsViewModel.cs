@@ -19,18 +19,19 @@ namespace VisiTour.Mobile.ViewModels
     {
         private readonly APIService _citiesService = new APIService("Cities");
         private readonly APIService _classesService = new APIService("FlightClasses");
+        private readonly APIService _bookingService = new APIService("Bookings");
 
-     
+
 
         public FindFlightsViewModel()
         {
             CitiesCommand = new Command(async () => await InitCities());
             ClassesCommand = new Command(async () => await InitClasses());
-
         }
 
         public ObservableCollection<Cities> CitiesList { get; set; } = new ObservableCollection<Cities>();
         public ObservableCollection<FlightClasses> ClassesList { get; set; } = new ObservableCollection<FlightClasses>();
+        public ObservableCollection<Flights> BookedFlightsList { get; set; } = new ObservableCollection<Flights>();
 
         public ICommand CitiesCommand { get; set; }
         public ICommand ClassesCommand { get; set; }
@@ -111,6 +112,8 @@ namespace VisiTour.Mobile.ViewModels
             }
         }
 
+     
+
         private DateTime? _dateFrom = null;
         public DateTime? DateFrom
         {
@@ -172,8 +175,20 @@ namespace VisiTour.Mobile.ViewModels
         }
 
 
-   
-
+        public async Task getBookings()
+        {
+            BookingsSearchRequest srch = new BookingsSearchRequest
+            {
+                CustomerId = APIService.Customers.CustomerId
+            };
+            var temp = await _bookingService.Get<List<Bookings>>(srch);
+            var temp1 = temp.Select(x => x.Flight).ToList();
+            BookedFlightsList.Clear();
+            foreach (var item in temp1)
+            {
+                BookedFlightsList.Add(item);
+            }
+        }
 
     }
 }

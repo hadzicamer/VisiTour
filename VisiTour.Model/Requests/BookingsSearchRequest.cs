@@ -6,7 +6,9 @@ namespace VisiTour.Model.Requests
 {
     public class BookingsSearchRequest
     {
-        public string Details { get; set; }
+        public string Email { get; set; }
+        public int CustomerId{ get; set; }
+
 
     }
 }

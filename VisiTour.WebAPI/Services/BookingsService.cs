@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
@@ -22,18 +23,35 @@ namespace VisiTour.WebAPI.Services
         }
         public List<Model.Bookings> Get([FromQuery]BookingsSearchRequest request)
         {
-            var query = _context.Bookings.AsQueryable();
+            var query = _context.Bookings.Include(x=>x.Flight).Include(x => x.Flight.FlightClass).Include(x => x.Flight.CityFrom).Include(x => x.Flight.CityTo).Include(x => x.Flight.Company).AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(request?.Details))
+            if (!string.IsNullOrWhiteSpace(request?.Email))
             {
-                query = query.Where(x => x.Details.Contains(request.Details));
+                query = query.Where(x => x.Email.Contains(request.Email));
             }
-                return _mapper.Map<List<Model.Bookings>>(query);
+            if (request?.CustomerId != null)
+            {
+                query = query.Where(x => x.CustomerId == request.CustomerId);
+            }
+
+            return _mapper.Map<List<Model.Bookings>>(query);
         }
 
         public Model.Bookings GetById(int id)
         {
             var e = _context.Set<Bookings>().Find(id);
+            return _mapper.Map<Model.Bookings>(e);
+        }
+
+
+        public Model.Bookings Insert(BookingInsertRequest request)
+        {
+            var e = _mapper.Map<Bookings>(request);
+
+            _context.Bookings.Add(e);
+
+            _context.SaveChanges();
+
             return _mapper.Map<Model.Bookings>(e);
         }
     }
